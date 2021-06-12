@@ -159,9 +159,7 @@ If you run `homectl setup-data-engr-enhanced` you also get:
 [GitUI](https://github.com/extrawurst/gitui) provides you with the comfort of a git GUI but right in your terminal. Per their website, "this tool does not fully substitute the `git` CLI, however both tools work well in tandem". It can be installed using:
 
 ```bash
-asdf plugin add gitui https://github.com/looztra/asdf-gitui
-asdf install gitui latest
-asdf global gitui latest
+homectl setup-asdf-plugin-global gitui https://github.com/looztra/asdf-gitui
 ```
 
 #### Important per-project and per-directory configuration management tools
