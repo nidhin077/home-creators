@@ -176,6 +176,17 @@ There are some [direnv YouTube videos](https://www.youtube.com/results?search_qu
 
 Need to consider adding the following over time.
 
+## Install optional packages via chezmoi
+
+See:
+
+```bash
+chezmoi execute-template '{{ .chezmoi.osRelease.id }}'      # e.g. debian or ubuntu
+chezmoi execute-template '{{ .chezmoi.osRelease.idLike }}'  # e.g. debian if running ubuntu
+```
+
+If a release is Debian or Debian-like (e.g. Ubuntu and others) we should automatically install some packages through `chezmoi` [scripts to perform actions](https://www.chezmoi.io/docs/how-to/#use-scripts-to-perform-actions). This might be a better way to install `postgresql-client` and other database-specific functionality as well as other packages.
+
 ## IDEs and Editors
 
 * Integrate [Helix](https://github.com/helix-editor/helix) as our opinionated terminal editor.
