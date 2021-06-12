@@ -44,7 +44,7 @@ exit
 Open a new terminal then complete the initial setup using `homectl`:
 
 ```zsh
-homectl setup setup-asdf-plugins-typical
+homectl setup setup-asdf-plugins-typical setup-data-engr-enhanced
 ```
 
 After initial setup `cd ~ && just (cmd)` will be equivalent to `homectl (cmd)`. `homectl` is one of many aliases defined by the auto-imported [~/.config/z4h-zshrc/aliases.auto.zshrc](dot_config/z4h-zshrc/aliases.auto.zshrc.tmpl) file. Personalize `z4h` with your own preferences. Learn how to use `z4h` to [keep it up to date](https://github.com/romkatv/zsh4humans#updating) and understand the recommended [customization approach](https://github.com/romkatv/zsh4humans#customization).
@@ -131,11 +131,21 @@ homectl setup-asdf-plugin-global neko
 asdf current
 ```
 
+## Important per-project and per-directory configuration management tools
+
 We use `asdf` to manage almost all languages and utilities so that they can be easily installed and, more importantly, support multiple versions simultaneously. For example, we heavily use `Deno` for multiple projects but each project might require a different version. `asdf` supports global, per session, and per project (directory) [version configuration strategy](https://asdf-vm.com/#/core-configuration?id=tool-versions).
 
 `asdf` has [centrally managed plugins](https://asdf-vm.com/#/plugins-all) for many languages and runtimes and there are even more [contributed plugins](https://github.com/search?q=asdf) for additional languages and runtimes. 
 
 There are good [asdf videos](https://www.youtube.com/watch?v=r6qLQgq2vGk) worth watching.
+
+In addition to `asdf` which supports a flexible [version configuration strategy](https://asdf-vm.com/#/core-configuration?id=tool-versions) for languages and runtimes, we use [direnv](https://asdf-vm.com/) to encourage usage of environment variables with per-directory flexibility. Per their documentation:
+
+> direnv is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
+
+We use `direnv` and `.envrc` files to manage environments on a [per-directory](https://www.tecmint.com/direnv-manage-environment-variables-in-linux/) (per-project and descendant directories) basis. `direnv` can be used to [manage secrets](https://www.youtube.com/watch?v=x3p-28PajJY) as well as non-secret configurations. Many other [development automation techniques](http://www.futurile.net/2016/02/03/automating-environment-setup-with-direnv/) are possible.
+
+There are some [direnv YouTube videos](https://www.youtube.com/results?search_query=direnv) worth watching to get familar with the capabilities.
 
 ## Data Engineering
 
@@ -161,16 +171,6 @@ If you run `homectl setup-data-engr-enhanced` you also get:
 ```bash
 homectl setup-asdf-plugin-global gitui https://github.com/looztra/asdf-gitui
 ```
-
-#### Important per-project and per-directory configuration management tools
-
-In addition to `asdf` which supports global, per session, and per project (directory) [version configuration strategy](https://asdf-vm.com/#/core-configuration?id=tool-versions) for languages and runtimes, we use [direnv](https://asdf-vm.com/) to encourage usage of environment variables with per-directory flexibility. Per their documentation:
-
-> direnv is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
-
-We use `direnv` and `.envrc` files to manage environments on a [per-directory](https://www.tecmint.com/direnv-manage-environment-variables-in-linux/) (per-project and descendant directories) basis. `direnv` can be used to [manage secrets](https://www.youtube.com/watch?v=x3p-28PajJY) as well as non-secret configurations. Many other [development automation techniques](http://www.futurile.net/2016/02/03/automating-environment-setup-with-direnv/) are possible.
-
-There are some [direnv YouTube videos](https://www.youtube.com/results?search_query=direnv) worth watching to get familar with the capabilities.
 
 # TODO (Roadmap)
 
@@ -202,6 +202,7 @@ If a release is Debian or Debian-like (e.g. Ubuntu and others) we should automat
 ## Data Engineering
 
 * [db-to-sqlite](https://github.com/simonw/db-to-sqlite) CLI tool for exporting tables or queries from any SQL database to a SQLite file to make data portable.
+* [sqlite-utils](https://github.com/simonw/sqlite-utils) CLI utility and Python library for manipulating SQLite databases
 * [jOOQ Parser](https://www.jooq.org/translate/) to translate any SQL statement(s) to a different dialect
 * A list of command line tools for manipulating structured text data is available at https://github.com/dbohdan/structured-text-tools
 * [eBay's TSV Utilities](https://github.com/eBay/tsv-utils): Command line tools for large, tabular data files. Filtering, statistics, sampling, joins and more. 
