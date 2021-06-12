@@ -123,7 +123,7 @@ setup-github-binary-latest-pipe repo archive pipeCmd:
     curl -Ls https://github.com/{{repo}}/releases/download/${ASSET_VERSION}/{{archive}} | {{pipeCmd}}
 
 # Install typical asdf plugins and their latest versions (direnv, deno, git-chglog)
-@setup-asdf-plugins-typical:
+setup-asdf-plugins-typical:
     #!/bin/bash
     set -euo pipefail
     just setup-asdf-plugin git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
