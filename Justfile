@@ -33,6 +33,13 @@ setup-jq:
     curl -s -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o {{userBinariesHome}}/jq && \
         chmod +x {{userBinariesHome}}/jq
 
+# Install Deno dependencies such as udd
+setup-deno:
+    #!/bin/bash
+    set -euo pipefail
+    export UDD_VERSION=`curl -s https://api.github.com/repos/hayd/deno-udd/tags  | jq '.[0].name' -r`
+    deno install -A -f -n udd https://deno.land/x/udd@${UDD_VERSION}/main.ts
+
 # Install the named plugin and its latest stable version
 setup-asdf-plugin plugin src="":
     #!/bin/bash
@@ -72,14 +79,14 @@ setup-ipm:
     chmod +x {{userBinariesHome}}/git-semtag
 
 # Install default assets
-setup: setup-jq setup-ipm setup-data-engr
+setup: setup-jq setup-ipm setup-deno setup-data-engr
     #!/bin/bash
     set -euo pipefail
     just setup-github-binary-latest-pipe kashav/fsql 'fsql-${ASSET_VERSION:1}-linux-amd64.tar.gz' 'tar -xz -C {{userBinariesHome}} --strip-components=1 linux-amd64/fsql'
 
 # Perform routine maintenance
 maintain: 
-    #!/bin/zsh
+    #!/bin/bash
     chezmoi update
     z4h update
     asdf update
