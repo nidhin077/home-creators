@@ -11,7 +11,7 @@ If you're using a Debian-based distro you should be able to run this repo in any
 Bootstrap a Debian environment with required utilities:
 
 ```bash
-sudo apt-get -qq update && sudo apt-get -y -qq install net-tools curl -y -qq && \
+sudo apt-get -qq update && sudo apt-get -y -qq install curl -y -qq && \
     curl -sSL https://raw.githubusercontent.com/netspective-studios/home-creators/master/bootstrap-admin-debian.sh | bash
 ```
 
