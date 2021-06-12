@@ -55,6 +55,7 @@ Customize your aliases and functions in `~/.config/z4h-zshrc/*.auto.zshrc` -- ba
 
 ```bash
 # if you're doing PostgreSQL database development and need psql command
+# $HOME/.pgpass and $HOME/.psqlrc are part of chezmoi dotfiles
 sudo apt-get install postgresql-client -y -qq
 
 # if you're doing your own software builds (instead of using binaries)
@@ -76,6 +77,10 @@ homectl maintain
 * We use [asdf](https://asdf-vm.com/) as our package manager to install all languages and utilities possible so that they can be easily installed and, more importantly, support multiple versions simultaneously.
 * We use [just](https://github.com/casey/just) command runner to execute tasks (available in `$HOME/bin`). We favor `just` over `make` for new packages but `make` is still a great tool for legacy requirements.
 * We use [pass](https://www.passwordstore.org/) the standard unix password manager for managing secrets that should not be in plaintext.
+
+## Secrets Management
+
+* `$HOME/.pgpass` should follow [PostgreSQL .pgpass](https://tableplus.com/blog/2019/09/how-to-use-pgpass-in-postgresql.html) rules for password management.
 
 ## Managed Git Repos (GitHub, GitLab, etc.) Tools
 
@@ -172,10 +177,6 @@ There are some [direnv YouTube videos](https://www.youtube.com/results?search_qu
 # TODO (Roadmap)
 
 Need to consider adding the following over time.
-
-## Secrets Management
-
-* Integrate [.pgpass](https://tableplus.com/blog/2019/09/how-to-use-pgpass-in-postgresql.html) for PostgreSQL password management.
 
 ## IDEs and Editors
 

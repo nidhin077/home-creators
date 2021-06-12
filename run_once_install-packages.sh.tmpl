@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+
+POSTGRESQL_PASSWD=~/.pgpass
+if [ ! -f POSTGRESQL_PASSWD ]; then
+    echo "# hostname:port:database:username:password" > $POSTGRESQL_PASSWD
+    echo "# 192.168.2.x:5432:database:postgres:sup3rSecure!" >> $POSTGRESQL_PASSWD
+    chmod 0600 $POSTGRESQL_PASSWD
+fi
