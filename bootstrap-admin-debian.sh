@@ -34,6 +34,7 @@ cat << EOF > $CHEZMOI_CONF
     [data.git.credential.helper.cache]
         timeout = 2592000 # 30 days
 EOF
+chmod 0600 $CHEZMOI_CONF
 
 echo "******************************************************************"
 echo "** Netspective Studios Home (NSH) admin boostrap complete.      **"
