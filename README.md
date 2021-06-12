@@ -200,6 +200,10 @@ Need to consider adding the following over time.
 
 * Integrate [.pgpass](https://tableplus.com/blog/2019/09/how-to-use-pgpass-in-postgresql.html) for PostgreSQL password management.
 
+## IDEs and Editors
+
+* Integrate [Helix](https://github.com/helix-editor/helix) as our opinionated terminal editor.
+
 ## File Management
 
 * Integrate [Wildland](https://wildland.io/), a collection of protocols, conventions, and software, which creates a union file system across S3, WebDAV, K8s, and other storage providers.
