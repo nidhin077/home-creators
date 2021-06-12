@@ -88,11 +88,8 @@ Configure `.zshrc` and then install typical asdf plugins:
 cat << 'EOF' >> ~/.zshrc
 # Hook direnv into your shell.
 z4h source ~/.asdf/asdf.sh
-eval "$(asdf exec direnv hook zsh)"
-
 z4h source -- ~/.config/z4h-zshrc/*.auto.zshrc
-
-# A shortcut for asdf managed direnv.
+eval "$(asdf exec direnv hook zsh)"
 direnv() { asdf exec direnv "$@"; }
 EOF
 exit
