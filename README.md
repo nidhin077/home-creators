@@ -111,7 +111,7 @@ homectl maintain
 
 ## Managed Git Repos (GitHub, GitLab, etc.) Tools
 
-Please review the bundled [Managed Git](managed-git/README.md) and opinionated set of instructions and tools for managing code workspaces that depend on multiple repositories.
+Please review the bundled [Managed Git](dot_config/managed-git/README.md) and opinionated set of instructions and tools for managing code workspaces that depend on multiple repositories.
 
 ## Polyglot langues installation and version Management
 
