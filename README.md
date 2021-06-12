@@ -11,7 +11,7 @@ If you're using a Debian-based distro you should be able to run this repo in any
 Bootstrap a Debian environment with required utilities:
 
 ```bash
-sudo apt-get -qq update && sudo apt-get -y -qq install curl -y -qq && \
+sudo apt-get -qq update && sudo apt-get install curl -y -qq && \
     curl -sSL https://raw.githubusercontent.com/netspective-studios/home-creators/master/bootstrap-admin-debian.sh | bash
 ```
 
@@ -55,7 +55,7 @@ Customize your aliases and functions in `~/.config/z4h-zshrc/*.auto.zshrc` -- ba
 
 ```bash
 # if you're doing PostgreSQL database development and need psql command
-sudo apt-get install postgresql-client
+sudo apt-get install postgresql-client -y -qq
 
 # if you're doing your own software builds (instead of using binaries)
 sudo apt-get -y -qq install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libxml2-dev xz-utils tk-dev libxmlsec1-dev libreadline-dev libffi-dev libbz2-dev liblzma-dev llvm
