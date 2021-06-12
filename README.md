@@ -1,6 +1,6 @@
 # Netspective Studios Typical Polyglot Creator's Home Setup
 
-Shahid's typical [chezmoi](https://www.chezmoi.io/)- and [asdf](https://asdf-vm.com/)-based WSL2 Debian Engineering Sandbox for polyglot software development or any other "creator tasks" that are performed on Linux-like operating systems.
+This is our opinionated [chezmoi](https://www.chezmoi.io/)- and [asdf](https://asdf-vm.com/)-based "engineering sandbox home" setup for polyglot software development or any other "creator tasks" that are performed on Linux-like operating systems.
 
 If you're using Windows 10 with WSL2, create a "disposable" Debian WSL2 instance using Windows Store. This project treats the WSL2 instance as "disposable" meaning it's for development only and can easily be destroyed and recreated whenever necessary. The cost for creation and destruction for a Engineering Sandbox should be so low that it should be treated almost as a container rather than a VM.
 
@@ -19,7 +19,7 @@ sudo apt-get -y -qq install curl git jq pass unzip bzip2 tree make
 curl -sSL https://git.io/git-extras-setup | sudo bash /dev/stdin
 ```
 
-Install `just` and `asdf` (these should work in any distro, not just Debian):
+Install `just` and `asdf` (these *should* work in any distro, not just Debian):
 
 ```bash
 # assume bash as the default shell, normal user privileges should work
@@ -30,10 +30,10 @@ ASDF_VERSION=`curl -s https://api.github.com/repos/asdf-vm/asdf/tags | jq '.[0].
 for pkg in direnv deno; do asdf plugin-add $pkg; asdf install $pkg latest; asdf global $pkg latest; done
 ```
 
-* We use `$HOME/bin` for binaries whenever possible instead globally installing them using `sudo`. Be sure to add `$HOME/bin` to your path.
+* We use `$HOME/bin` for binaries whenever possible instead globally installing them using `sudo`.
 * We use `git` and `git-extras` because we're a GitOps shop.
-* We use [just](https://github.com/casey/just) command runner to execute tasks (available in `$HOME/bin`).
 * We use [asdf](https://asdf-vm.com/) as our package manager to install all languages and utilities possible so that they can be easily installed and, more importantly, support multiple versions simultaneously.
+* We use [just](https://github.com/casey/just) command runner to execute tasks (available in `$HOME/bin`). We favor `just` over `make` for new packages but `make` is still a great tool for legacy requirements.
 * We use [pass](https://www.passwordstore.org/) the standard unix password manager for managing secrets that should not be in plaintext.
 
 Optional:
@@ -113,32 +113,47 @@ homectl maintain
 
 Please review the bundled [Managed Git](dot_config/managed-git/README.md) and opinionated set of instructions and tools for managing code workspaces that depend on multiple repositories.
 
-## Polyglot langues installation and version Management
+We use [Semantic Versioning](https://semver.org/) so be sure to learn and regularly use the [semtag](https://github.com/nico2sh/semtag) bash script that is installed as `git-semtag` in `$HOME/bin` by `homectl setup` task. 
 
-Netspective Studios projects assume that `asdf` is being used for version management of programming languages (Java, Go, etc.) and runtime environments (Deno, NodeJS, Python, etc.) and `direnv` is being used for project-specific environments. 
+## Polyglot Languages Installation and Version Management
 
-When you ran `just setup-asdf-plugins-typical`, as part of `z4h` CLI setup, `deno` was installed by default.
+Netspective Studios projects assume that [asdf](https://asdf-vm.com/) is being used for version management of programming languages (Java, Go, etc.) and runtime environments (Deno, NodeJS, Python, etc.) and `direnv` is being used for project-specific environments. 
 
-For other languages, you can install them like this:
+You can install languages and other packages like this:
 
 ```bash
-asdf plugin add nodejs
-asdf plugin add python
-asdf plugin add java
 asdf plugin add golang
-asdf plugin add julia
-asdf plugin add haxe
-asdf plugin add neko
-asdf plugin add hugo
+asdf plugin add nodejs
 
 asdf install golang latest
 asdf install nodejs latest
-asdf install python latest
-asdf install hugo latest
+
+asdf global golang latest
+asdf global nodejs latest
 ...
 
 asdf current
 ```
+
+Or, use the convenience tasks in `homectl`:
+
+```bash
+homectl setup-asdf-plugin java          # Install the plugin and its latest stable version but don't set the version
+homectl setup-asdf-plugin julia
+...
+homectl setup-asdf-plugin-global hugo   # Install the named plugin, its latest stable release, and then set it as the global version
+homectl setup-asdf-plugin-global python
+homectl setup-asdf-plugin-global haxe
+homectl setup-asdf-plugin-global neko
+...
+asdf current
+```
+
+We use `asdf` to manage almost all languages and utilities so that they can be easily installed and, more importantly, support multiple versions simultaneously. For example, we heavily use `Deno` for multiple projects but each project might require a different version. `asdf` supports global, per session, and per project (directory) [version configuration strategy](https://asdf-vm.com/#/core-configuration?id=tool-versions).
+
+`asdf` has [centrally managed plugins](https://asdf-vm.com/#/plugins-all) for many languages and runtimes and there are even more [contributed plugins](https://github.com/search?q=asdf) for additional languages and runtimes. 
+
+There are good [asdf videos](https://www.youtube.com/watch?v=r6qLQgq2vGk) worth watching.
 
 ## Data Engineering
 
@@ -147,7 +162,7 @@ Default data tools installed in `~/bin`:
 * [Miller](https://github.com/johnkerl/miller) is like awk, sed, cut, join, and sort for name\-indexed data such as CSV, TSV, and tabular JSON.
 * [daff](https://github.com/paulfitz/daff) library for comparing tables, producing a summary of their differences.
 
-If you run `just setup-data-engr-enhanced` you also get:
+If you run `homectl setup-data-engr-enhanced` you also get:
 
 * [csvtk](https://github.com/shenwei356/csvtk) is a cross-platform, efficient and practical CSV/TSV toolkit in Golang.
 * [xsv](https://github.com/BurntSushi/xsv) is a fast CSV command line toolkit written in Rust.
@@ -155,12 +170,6 @@ If you run `just setup-data-engr-enhanced` you also get:
 * [q](http://harelba.github.io/q/) - Run SQL directly on CSV or TSV files.
 * [Dasel](https://github.com/TomWright/dasel) jq/yq for JSON, YAML, TOML, XML and CSV with zero runtime dependencies.
 
-TODO (others to consider):
-
-* A list of command line tools for manipulating structured text data is available at https://github.com/dbohdan/structured-text-tools
-* [eBay's TSV Utilities](https://github.com/eBay/tsv-utils): Command line tools for large, tabular data files. Filtering, statistics, sampling, joins and more. 
-* [pgLoader](https://pgloader.io/) can either load data from files, such as CSV or Fixed-File Format; or migrate a whole database to PostgreSQL
-  
 ## Beneficial Add-ons
 
 ### gitui terminal-ui for Git
@@ -173,20 +182,37 @@ asdf install gitui latest
 asdf global gitui latest
 ```
 
-#### Important configuration management tools
+#### Important per-project and per-directory configuration management tools
 
-This project's dotfiles automatically assume [asdf](https://asdf-vm.com/) is being used to manage multiple runtime versions with a single CLI tool. Per their documentation:
-
-> asdf is a CLI tool that can manage multiple language runtime versions on a per-project basis. It is like gvm, nvm, rbenv & pyenv (and more) all in one! Simply install your language's plugin!
-
-We use `asdf` to manage almost all languages and utilities so that they can be easily installed and, more importantly, support multiple versions simultaneously. For example, we heavily use `Deno` for multiple projects but each project might have a different version required. `asdf` supports global, per session, and per project (directory) [version configuration strategy](https://asdf-vm.com/#/core-configuration?id=tool-versions).
-
-This project's dotfiles automatically setup [direnv](https://asdf-vm.com/) to encourage usage of environment variables with more flexibility. Per their documentation:
+In addition to `asdf` which supports global, per session, and per project (directory) [version configuration strategy](https://asdf-vm.com/#/core-configuration?id=tool-versions) for languages and runtimes, we use [direnv](https://asdf-vm.com/) to encourage usage of environment variables with per-directory flexibility. Per their documentation:
 
 > direnv is an extension for your shell. It augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
 
 We use `direnv` and `.envrc` files to manage environments on a [per-directory](https://www.tecmint.com/direnv-manage-environment-variables-in-linux/) (per-project and descendant directories) basis. `direnv` can be used to [manage secrets](https://www.youtube.com/watch?v=x3p-28PajJY) as well as non-secret configurations. Many other [development automation techniques](http://www.futurile.net/2016/02/03/automating-environment-setup-with-direnv/) are possible.
 
-`asdf` has [centrally managed plugins](https://asdf-vm.com/#/plugins-all) for many languages and runtimes and there are even more [contributed plugins](https://github.com/search?q=asdf) for additional languages and runtimes.
+There are some [direnv YouTube videos](https://www.youtube.com/results?search_query=direnv) worth watching to get familar with the capabilities.
 
-There are many [direnv YouTube videos](https://www.youtube.com/results?search_query=direnv) and [asdf videos](https://www.youtube.com/watch?v=r6qLQgq2vGk) worth watching to get familar with the capabilities.
+# TODO (Roadmap)
+
+Need to consider adding the following over time.
+
+## Secrets Management
+
+* Integrate [.pgpass](https://tableplus.com/blog/2019/09/how-to-use-pgpass-in-postgresql.html) for PostgreSQL password management.
+
+## File Management
+
+* Integrate [Wildland](https://wildland.io/), a collection of protocols, conventions, and software, which creates a union file system across S3, WebDAV, K8s, and other storage providers.
+
+## Data Publishing
+
+* [Datasette](https://datasette.io/) multi-tool for exploring and publishing data. It helps data journalists and anyone else who has data that they wish to share with the world take data of any shape or size, analyze and explore it, and publish it as an interactive website and accompanying API.
+
+## Data Engineering
+
+* [db-to-sqlite](https://github.com/simonw/db-to-sqlite) CLI tool for exporting tables or queries from any SQL database to a SQLite file to make data portable.
+* [jOOQ Parser](https://www.jooq.org/translate/) to translate any SQL statement(s) to a different dialect
+* A list of command line tools for manipulating structured text data is available at https://github.com/dbohdan/structured-text-tools
+* [eBay's TSV Utilities](https://github.com/eBay/tsv-utils): Command line tools for large, tabular data files. Filtering, statistics, sampling, joins and more. 
+* [pgLoader](https://pgloader.io/) can either load data from files, such as CSV or Fixed-File Format; or migrate a whole database to PostgreSQL
+* [dbcrossbar](http://www.dbcrossbar.org/) copies large, tabular datasets between many different databases and storage formats. Data can be copied from any source to any destination.
