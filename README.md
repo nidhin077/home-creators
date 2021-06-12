@@ -63,12 +63,12 @@ cat << EOF > $CHEZMOI_CONF
 EOF
 # Personalize your $CHEZMOI_CONF
 vi $CHEZMOI_CONF
-sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply netspective-studios/chezmoi-dotfiles-creators-typical
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply netspective-studios/home-creators
 exit
 # open a new shell continue with one-time setup of CLI
 ```
 
-See [chezmoi.toml Example](https://raw.githubusercontent.com/netspective-studios/chezmoi-dotfiles-creators-typical/main/dot_config/chezmoi/chezmoi.toml.example) to help understand the variables that can be set and used across chezmoi templates.
+See [chezmoi.toml Example](dot_config/chezmoi/chezmoi.toml.example) to help understand the variables that can be set and used across chezmoi templates.
 
 After initial setup, once you exit and re-enter your shell, `cd ~ && just (cmd)` will be equivalent to `homectl (cmd)`. `homectl` is one of many aliases defined by the auto-imported [~/.config/z4h-zshrc/aliases.auto.zshrc](dot_config/z4h-zshrc/aliases.auto.zshrc.tmpl) file.
 
