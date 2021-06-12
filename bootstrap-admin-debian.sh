@@ -46,6 +46,6 @@ echo "**   - direnv (per-directory environment variables loader)      **"
 echo "** ------------------------------------------------------------ **"
 echo "** NSH_IS_WSL: $NSH_IS_WSL                                                **"
 echo "** ------------------------------------------------------------ **"
-echo "** Continue installation by edit chezmoi config using:          **"
+echo "** Continue installation by editing chezmoi config:             **"
 echo '**   vi ~/.config/chezmoi/chezmoi.toml                          **'
 echo "******************************************************************"
