@@ -94,6 +94,12 @@ maintain:
     just setup
     just setup-asdf-plugins-typical
 
+# Show the latest release version of the given repo
+inspect-github-repo-latest-version repo:
+    #!/bin/bash
+    set -euo pipefail
+    echo `curl -s https://api.github.com/repos/{{repo}}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`    
+
 # Download github.com/{repo}/releases/download/LATEST/{asset} as {dest}
 setup-github-binary-latest repo asset dest:
     #!/bin/bash
