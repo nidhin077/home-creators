@@ -148,3 +148,16 @@ lrwxrwxrwx  1 snshah snshah  115 Sep 28 10:01 repo1.code-workspace -> gitlab.com
 ```
 
 The `vscws-repos-ensure-ref` command, which is used by `just vscws-inspect-ensure | sh`, will create a *reference* (symbolic link, or *symlink*) to the `*.code-workspace`. The symlink'd `*.code-workspace` is the one that should be opened in Visual Studio Code so that all the repos are resolved through relative paths from the root of the `workspaces` directory.
+
+## Semantic Versioning and Git Tagging
+
+We use [Semantic Versioning](https://semver.org/) so be sure to learn and regularly use the [semtag](https://github.com/nico2sh/semtag) bash script. 
+
+For example:
+
+```bash
+git commit -am "git commit message"
+git-semtag final -v v0.5.0
+# or 'git-semtag final' without version to auto-compute semver based on heuristics
+git push
+```

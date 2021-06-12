@@ -115,6 +115,15 @@ Please review the bundled [Managed Git](dot_config/managed-git/README.md) and op
 
 We use [Semantic Versioning](https://semver.org/) so be sure to learn and regularly use the [semtag](https://github.com/nico2sh/semtag) bash script that is installed as `git-semtag` in `$HOME/bin` by `homectl setup` task. 
 
+For example:
+
+```bash
+git commit -am "git commit message"
+git-semtag final -v v0.5.0
+# or 'git-semtag final' without version to auto-compute semver based on heuristics
+git push
+```
+
 ## Polyglot Languages Installation and Version Management
 
 Netspective Studios projects assume that [asdf](https://asdf-vm.com/) is being used for version management of programming languages (Java, Go, etc.) and runtime environments (Deno, NodeJS, Python, etc.) and `direnv` is being used for project-specific environments. 
