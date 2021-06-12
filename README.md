@@ -1,6 +1,6 @@
 # Netspective Studios Typical Polyglot Creator's Home Setup
 
-Shahid's typical Engineering Sandbox for polyglot software development or any other "creator tasks" that are performed on Linux-like operating systems.
+Shahid's typical [chezmoi](https://www.chezmoi.io/)- and [asdf](https://asdf-vm.com/)-based WSL2 Debian Engineering Sandbox for polyglot software development or any other "creator tasks" that are performed on Linux-like operating systems.
 
 If you're using Windows 10 with WSL2, create a "disposable" Debian WSL2 instance using Windows Store. This project treats the WSL2 instance as "disposable" meaning it's for development only and can easily be destroyed and recreated whenever necessary. The cost for creation and destruction for a Engineering Sandbox should be so low that it should be treated almost as a container rather than a VM.
 
