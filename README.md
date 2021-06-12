@@ -15,11 +15,11 @@ sudo apt-get -qq update && sudo apt-get -y -qq install curl -y -qq && \
     curl -sSL https://raw.githubusercontent.com/netspective-studios/home-creators/master/bootstrap-admin-debian.sh | bash
 ```
 
-We use [chezmoi](https://www.chezmoi.io/) with templates to manage our dotfiles across multiple diverse machines, securely. The `bootstrap-*` script has already created the `chezmoi` config file and set `$CHEZMOI_CONF` and you should personalize it before installing `chezmoi`. See [chezmoi.toml Example](dot_config/chezmoi/chezmoi.toml.example) to help understand the variables that can be set and used across chezmoi templates.
+We use [chezmoi](https://www.chezmoi.io/) with templates to manage our dotfiles across multiple diverse machines, securely. The `bootstrap-*` script has already created the `chezmoi` config file which you should personalize _before installing_ `chezmoi`. See [chezmoi.toml Example](dot_config/chezmoi/chezmoi.toml.example) to help understand the variables that can be set and used across chezmoi templates.
 
 ```bash
-# Personalize your $CHEZMOI_CONF
-vi $CHEZMOI_CONF
+# Personalize your chezmoi config
+vi ~/.config/chezmoi/chezmoi.toml
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply netspective-studios/home-creators
 exit
 # open a new shell continue with one-time setup of CLI
@@ -29,15 +29,15 @@ After initial setup, once you exit and re-enter your shell, `cd ~ && just (cmd)`
 
 We prefer ZSH as the default shell with a few typical projects to create a flexible creator's sandbox. The `chezmoi` setup above will introduce the dotfiles that this section needs.
 
-Run [ZSH for Humans](https://github.com/romkatv/zsh4humans#installation) (`z4h`) installer: 
+Run [ZSH for Humans](https://github.com/romkatv/zsh4humans#installation) (`z4h`) installer:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 ```
 
-Configure `.zshrc` and then install typical asdf plugins:
+Finalize `.zshrc` setup and then exit your shell:
 
-```zsh
+```bash
 cat << 'EOF' >> ~/.zshrc
 z4h source ~/.asdf/asdf.sh
 z4h source -- ~/.config/z4h-zshrc/*.auto.zshrc
@@ -45,7 +45,11 @@ eval "$(asdf exec direnv hook zsh)"
 direnv() { asdf exec direnv "$@"; }
 EOF
 exit
-# open a new shell
+```
+
+Open a new terminal then complete the initial setup using `homectl`:
+
+```zsh
 homectl setup setup-asdf-plugins-typical
 ```
 
