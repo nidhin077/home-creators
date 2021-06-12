@@ -47,5 +47,5 @@ echo "** ------------------------------------------------------------ **"
 echo "** NSH_IS_WSL: $NSH_IS_WSL                                                **"
 echo "** ------------------------------------------------------------ **"
 echo "** Continue installation by edit chezmoi config using:          **"
-echo '**   vi $CHEZMOI_CONF                                           **'
+echo '**   vi ~/.config/chezmoi/chezmoi.toml                          **'
 echo "******************************************************************"
