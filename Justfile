@@ -21,6 +21,7 @@ doctor:
     mlr --version
     echo "daff `daff version`"
     fsql --version
+    simple-http-server --version
     echo "asdf `asdf --version`"
     asdf current direnv | sed 's/^/  /'
     asdf current deno | sed 's/^/  /'
@@ -38,7 +39,7 @@ setup-deno:
     #!/bin/bash
     set -euo pipefail
     export UDD_VERSION=`curl -s https://api.github.com/repos/hayd/deno-udd/tags  | jq '.[0].name' -r`
-    deno install -A -f -n udd https://deno.land/x/udd@${UDD_VERSION}/main.ts
+    deno install -A -f -n udd --quiet https://deno.land/x/udd@${UDD_VERSION}/main.ts
 
 # Install the named plugin (or update it if it's already installed) and its latest stable version
 setup-asdf-plugin plugin src="":
@@ -87,6 +88,7 @@ setup: setup-jq setup-ipm setup-deno setup-data-engr
     #!/bin/bash
     set -euo pipefail
     just setup-github-binary-latest-pipe kashav/fsql 'fsql-${ASSET_VERSION:1}-linux-amd64.tar.gz' 'tar -xz -C {{userBinariesHome}} --strip-components=1 linux-amd64/fsql'
+    just setup-github-binary-latest TheWaWaR/simple-http-server 'x86_64-unknown-linux-musl-simple-http-server' {{userBinariesHome}}/simple-http-server
 
 # Perform routine maintenance
 maintain: 
