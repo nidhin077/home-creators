@@ -1,0 +1,6 @@
+[user]
+	name = {{ .git.user.name | quote }}
+	email = {{ .git.user.email | quote }}
+
+[credential]
+    helper = cache --timeout={{ .git.credential.helper.cache.timeout }}

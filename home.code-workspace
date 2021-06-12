@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"mikestead.dotenv",
+			"yzhang.markdown-all-in-one",
+			"skellock.just",
+			"coenraads.bracket-pair-colorizer-2",
+			"shd101wyy.markdown-preview-enhanced",
+			"bungcip.better-toml"
+		]
+	},
+	"settings": {
+		"git.autofetch": true,
+		"terminal.integrated.fontFamily": "CascadianCode NF",
+		"editor.formatOnSave": true,
+	}
+}

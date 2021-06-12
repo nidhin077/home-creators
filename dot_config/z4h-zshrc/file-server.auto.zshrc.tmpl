@@ -1,0 +1,7 @@
+function file-server() {
+    denoStdLibVersion=`curl -s https://api.github.com/repos/denoland/deno_std/releases | jq '.[0].name' -r`
+    FS_PATH=${1:-public}
+    PORT=${2:-3100}
+    echo "Serving files in '$FS_PATH' on port $PORT"
+    deno run -A --unstable https://deno.land/std@${denoStdLibVersion}/http/file_server.ts $FS_PATH --port ${PORT} --host localhost
+}
