@@ -21,11 +21,7 @@ We use [chezmoi](https://www.chezmoi.io/) with templates to manage our dotfiles 
 # Personalize your chezmoi config
 vi ~/.config/chezmoi/chezmoi.toml
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply netspective-studios/home-creators
-exit
-# open a new shell continue with one-time setup of CLI
 ```
-
-After initial setup, once you exit and re-enter your shell, `cd ~ && just (cmd)` will be equivalent to `homectl (cmd)`. `homectl` is one of many aliases defined by the auto-imported [~/.config/z4h-zshrc/aliases.auto.zshrc](dot_config/z4h-zshrc/aliases.auto.zshrc.tmpl) file.
 
 We prefer ZSH as the default shell with a few typical projects to create a flexible creator's sandbox. The `chezmoi` setup above will introduce the dotfiles that this section needs.
 
@@ -53,7 +49,7 @@ Open a new terminal then complete the initial setup using `homectl`:
 homectl setup setup-asdf-plugins-typical
 ```
 
-Personalize `z4h` with your own preferences. Learn how to use `z4h` to [keep it up to date](https://github.com/romkatv/zsh4humans#updating) and understand the recommended [customization approach](https://github.com/romkatv/zsh4humans#customization).
+After initial setup `cd ~ && just (cmd)` will be equivalent to `homectl (cmd)`. `homectl` is one of many aliases defined by the auto-imported [~/.config/z4h-zshrc/aliases.auto.zshrc](dot_config/z4h-zshrc/aliases.auto.zshrc.tmpl) file. Personalize `z4h` with your own preferences. Learn how to use `z4h` to [keep it up to date](https://github.com/romkatv/zsh4humans#updating) and understand the recommended [customization approach](https://github.com/romkatv/zsh4humans#customization).
 
 Customize your aliases and functions in `~/.config/z4h-zshrc/*.auto.zshrc` -- basically, any file in your `~/.config/z4h-zshrc` directory that has the `*.auto.zshrc` extension will be automatically sourced by `z4h` into each shell.
 
