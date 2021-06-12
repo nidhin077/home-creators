@@ -23,9 +23,7 @@ vi ~/.config/chezmoi/chezmoi.toml
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply netspective-studios/home-creators
 ```
 
-We prefer ZSH as the default shell with a few typical projects to create a flexible creator's sandbox. The `chezmoi` setup above will introduce the dotfiles that this section needs.
-
-Run [ZSH for Humans](https://github.com/romkatv/zsh4humans#installation) (`z4h`) installer:
+We prefer ZSH as the default shell. Run [ZSH for Humans](https://github.com/romkatv/zsh4humans#installation) (`z4h`) installer:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
