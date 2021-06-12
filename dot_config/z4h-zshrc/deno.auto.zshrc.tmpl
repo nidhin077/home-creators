@@ -6,8 +6,3 @@ alias deno-lint="deno lint --unstable"
 alias deno-test="deno fmt ; deno test -A --unstable"
 alias deno-testc="deno fmt ; deno test -A --unstable --coverage"
 alias deno-clear-caches="rm -rf $(deno --unstable info --json | jq -r .denoDir)"
-
-function deno-setup() {
-    export UDD_VERSION=`curl -s https://api.github.com/repos/hayd/deno-udd/tags  | jq '.[0].name' -r`
-    deno install -A -f -n udd https://deno.land/x/udd@${UDD_VERSION}/main.ts
-}
