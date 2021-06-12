@@ -40,7 +40,7 @@ setup-deno:
     export UDD_VERSION=`curl -s https://api.github.com/repos/hayd/deno-udd/tags  | jq '.[0].name' -r`
     deno install -A -f -n udd https://deno.land/x/udd@${UDD_VERSION}/main.ts
 
-# Install the named plugin and its latest stable version
+# Install the named plugin (or update it if it's already installed) and its latest stable version
 setup-asdf-plugin plugin src="":
     #!/bin/bash
     set -euo pipefail
@@ -51,6 +51,10 @@ setup-asdf-plugin plugin src="":
         asdf plugin add {{plugin}} {{src}}
     fi
     asdf install {{plugin}} latest
+
+# Install the named plugin, its latest stable release, and then set it as the global version
+setup-asdf-plugin-global plugin src="": (setup-asdf-plugin plugin src)
+    asdf global {{plugin}} latest
 
 # Install common data engineering tools such Miller and daff from GitHub
 setup-data-engr: 
