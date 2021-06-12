@@ -89,6 +89,8 @@ setup: setup-jq setup-ipm setup-deno setup-data-engr
     set -euo pipefail
     just setup-github-binary-latest-pipe kashav/fsql 'fsql-${ASSET_VERSION:1}-linux-amd64.tar.gz' 'tar -xz -C {{userBinariesHome}} --strip-components=1 linux-amd64/fsql'
     just setup-github-binary-latest TheWaWaR/simple-http-server 'x86_64-unknown-linux-musl-simple-http-server' {{userBinariesHome}}/simple-http-server
+    denoStdLibVersion=`curl -s https://api.github.com/repos/denoland/deno_std/releases | jq '.[0].name' -r`
+    deno install --allow-net --allow-read --quiet ----name file-server https://deno.land/std@${denoStdLibVersion}/http/file_server.ts
 
 # Perform routine maintenance
 maintain: 
