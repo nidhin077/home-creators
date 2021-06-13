@@ -178,7 +178,7 @@ Need to consider adding the following over time.
 
 ## Install optional packages via chezmoi
 
-See:
+Consider moving items from `Justfile` (`homectl`) into [run_once_install-packages.sh.tmpl](run_once_install-packages.sh.tmpl). By moving from `just` to `chezmoi` we benefit from templating and better configuration. See:
 
 ```bash
 chezmoi execute-template '{{ .chezmoi.osRelease.id }}'      # e.g. debian or ubuntu
