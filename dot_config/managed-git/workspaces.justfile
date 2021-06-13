@@ -85,3 +85,36 @@ vscws-repos-ensure-ref vscws:
         rm -f $vscwsRef
     fi
     ln -s {{vscws}} $vscwsRef
+
+# Create a new managed Git repo directory using proper structure
+repo-init gitURL:
+    #!/bin/bash
+    set -euo pipefail
+    workspaceHome="{{gitURL}}"
+    if [ ! -e "$workspaceHome" ]; then
+        mkdir -p "$workspaceHome"
+        git -C "$workspaceHome" init
+        echo "Ready: cd $workspaceHome"
+    else
+        echo "$workspaceHome exists, unable to initialize new repo"
+    fi
+
+# Create a new managed Git repo directory and *.code-workspace symlink
+repo-init-ref gitURL vscws="`basename $workspaceHome`.code-workspace":
+    #!/bin/bash
+    set -euo pipefail
+    workspaceHome="{{gitURL}}"
+    workspaceProjectFile="$workspaceHome/{{vscws}}"
+    if [ ! -e "$workspaceHome" ]; then
+        mkdir -p "$workspaceHome"
+        git -C "$workspaceHome" init
+        echo '{ "folders": [{ "path": "{{gitURL}}" } ] }' | jq > "$workspaceProjectFile"
+        if [ -L "{{vscws}}" ]; then
+            rm -f "{{vscws}}"
+        fi
+        ln -s "$workspaceProjectFile" "{{vscws}}"
+        echo "Ready: cd $workspaceHome"
+        echo "   or: code {{vscws}}"
+    else
+        echo "$workspaceHome exists, unable to initialize new repo"
+    fi
