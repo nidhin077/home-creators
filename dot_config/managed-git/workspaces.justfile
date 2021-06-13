@@ -98,6 +98,7 @@ vscws-repos-ensure-ref vscws:
         rm -f $vscwsRef
     fi
     ln -s {{vscws}} $vscwsRef
+    echo "Ready: code $vscwsRef"
 
 # Create a new managed Git repo directory and *.code-workspace symlink
 vscws-repo-init-ref gitURL vscws="`basename $workspaceHome`.code-workspace":
@@ -108,7 +109,7 @@ vscws-repo-init-ref gitURL vscws="`basename $workspaceHome`.code-workspace":
     if [ ! -e "$workspaceHome" ]; then
         mkdir -p "$workspaceHome"
         git -C "$workspaceHome" init
-        echo '{ "folders": [{ "path": "{{gitURL}}" } ] }' | jq > "$workspaceProjectFile"
+        echo '{ "folders": [{ "path": "{{gitURL}}" } ], "settings": { "git.autofetch": true	} }' | jq > "$workspaceProjectFile"
         if [ -L "{{vscws}}" ]; then
             rm -f "{{vscws}}"
         fi
