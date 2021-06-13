@@ -70,6 +70,14 @@ On a daily, weekly, or monthly basis run:
 homectl maintain
 ```
 
+## Contributing
+
+PRs are welcome. If you're making changes directly (without a PR), after updating and before pushing code, tag the release:
+
+```bash
+git-semtag final && git push
+```
+
 # What's Installed
 
 * We use `$HOME/bin` for binaries whenever possible instead globally installing them using `sudo`.
