@@ -4,6 +4,19 @@ inspect:
     set -euo pipefail
     tree -d -L 4 `pwd`
 
+# Create a new managed Git repo directory using proper structure
+repo-init gitURL:
+    #!/bin/bash
+    set -euo pipefail
+    workspaceHome="{{gitURL}}"
+    if [ ! -e "$workspaceHome" ]; then
+        mkdir -p "$workspaceHome"
+        git -C "$workspaceHome" init
+        echo "Ready: cd $workspaceHome"
+    else
+        echo "$workspaceHome exists, unable to initialize new repo"
+    fi
+
 # Clone or pull gitURL from a managed git supplier's HTTP endpoint
 repo-ensure gitURL context="interactive":
     #!/bin/bash
@@ -86,21 +99,8 @@ vscws-repos-ensure-ref vscws:
     fi
     ln -s {{vscws}} $vscwsRef
 
-# Create a new managed Git repo directory using proper structure
-repo-init gitURL:
-    #!/bin/bash
-    set -euo pipefail
-    workspaceHome="{{gitURL}}"
-    if [ ! -e "$workspaceHome" ]; then
-        mkdir -p "$workspaceHome"
-        git -C "$workspaceHome" init
-        echo "Ready: cd $workspaceHome"
-    else
-        echo "$workspaceHome exists, unable to initialize new repo"
-    fi
-
 # Create a new managed Git repo directory and *.code-workspace symlink
-repo-init-ref gitURL vscws="`basename $workspaceHome`.code-workspace":
+vscws-repo-init-ref gitURL vscws="`basename $workspaceHome`.code-workspace":
     #!/bin/bash
     set -euo pipefail
     workspaceHome="{{gitURL}}"
