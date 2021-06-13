@@ -58,7 +58,7 @@ Typically, the following alias is setup for Managed Git Controller (`mgitctl`):
 ```bash
 MANAGED_GIT_CONF_HOME=${MANAGED_GIT_CONF_HOME:-$HOME/.config/managed-git}
 alias mgitctl="just --justfile $MANAGED_GIT_CONF_HOME/mgitctl.justfile --working-directory `pwd`"
-alias mgitcd="cd \$MANAGED_GIT_WORKSPACES_HOME"
+alias wscd="cd \$MANAGED_GIT_WORKSPACES_HOME"
 ```
 
 Either you can use the alias or run the full `Just` command to create a workspace. This is the most common setup:
@@ -67,11 +67,11 @@ Either you can use the alias or run the full `Just` command to create a workspac
 mgitctl workspaces-init $HOME/workspaces
 ```
 
-As you clone repos and move around inside `$HOME/workspaces` you may want to easily come back to the top of the workspaces root. You can do that using the `mgitcd` alias. If you're inside a directory or descendant of a path created using `mgitctl workspaces-init`, the `mgitcd` alias will bring you to root of workspaces (e.g. `$HOME/workspaces`). For example:
+As you clone repos and move around inside `$HOME/workspaces` you may want to easily come back to the top of the workspaces root. You can do that using the `wscd` alias. If you're inside a directory or descendant of a path created using `mgitctl workspaces-init`, the `wscd` alias will bring you to root of workspaces (e.g. `$HOME/workspaces`). For example:
 
 ```bash
 $HOME/workspaces/github.com/shah/vscode-team
-mgitcd
+wscd
 ```
 
 ## Using managed Git workspaces
@@ -94,7 +94,7 @@ just vscws-inspect-ensure | sh                 # find all *.code-workspace files
 Work with managed Git repos using the `just repo-ensure` command:
 
 ```bash
-mgitcd    # or $HOME/workspaces
+wscd    # or $HOME/workspaces
 ❯ just repo-ensure github.com/shah/my-repo
 my-repo found, pulling latest in github.com/shah/my-repo
 Ready: cd github.com/shah/my-repo
