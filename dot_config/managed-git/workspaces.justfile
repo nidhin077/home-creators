@@ -100,6 +100,14 @@ vscws-repos-ensure-ref vscws:
     ln -s {{vscws}} $vscwsRef
     echo "Ready: code $vscwsRef"
 
+# Return the relative path to the target of the given *.code-workspace symlink
+vscws-ref-target vscws:
+    realpath --relative-to=. `readlink -f {{vscws}}`
+
+# Return the relative path to the directory of the target of the given *.code-workspace symlink
+vscws-ref-target-dir vscws:
+    dirname $(realpath --relative-to=. `readlink -f {{vscws}}`)
+
 # Create a new managed Git repo directory and *.code-workspace symlink
 vscws-repo-init-ref gitURL vscws="`basename $workspaceHome`.code-workspace":
     #!/bin/bash

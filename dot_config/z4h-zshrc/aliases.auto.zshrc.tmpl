@@ -3,3 +3,8 @@ alias homectl="just --justfile $HOME/Justfile --working-directory $HOME"
 alias chez='chezmoi'
 
 alias ll='ls -alF'
+
+# cd to the directory that the symlink points to
+cd-ref() {
+    cd $(dirname $(realpath --relative-to=. `readlink -f $1`))
+}
