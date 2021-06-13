@@ -109,7 +109,7 @@ vscws-ref-target-dir vscws:
     dirname $(realpath --relative-to=. `readlink -f {{vscws}}`)
 
 # Create a new managed Git repo directory and *.code-workspace symlink
-vscws-repo-init-ref gitURL vscws="`basename $workspaceHome`.code-workspace":
+vscws-repo-init-ref gitURL vscws="`basename $workspaceHome`.mgit.code-workspace":
     #!/bin/bash
     set -euo pipefail
     workspaceHome="{{gitURL}}"
