@@ -184,6 +184,20 @@ homectl setup-asdf-plugin-global gitui https://github.com/looztra/asdf-gitui
 
 Need to consider adding the following over time.
 
+## Use `asdf install` with `.tool-versions` to auto-install
+
+Per [asdf .tool-versions documentation](https://asdf-vm.com/#/core-configuration):
+
+> To install all the tools defined in a `.tool-versions` file run asdf install with no other arguments in the directory containing the `.tool-versions` file.
+
+> To install a single tool defined in a `.tool-versions` file run asdf install <name> in the directory containing the `.tool-versions` file. The tool will be installed at the version specified in the `.tool-versions` file.
+
+> Edit the file directly or use `asdf local` (or `asdf global`) which updates it.
+
+This might better than trying to give installation instructions in `README.md` and other per-project files.
+
+Basically in each of our Git repos we can give `.tool-versions` and then each project user can just run `asdf install`.
+
 ## Install optional packages via chezmoi
 
 Consider moving items from `Justfile` (`homectl`) into [run_once_install-packages.sh.tmpl](run_once_install-packages.sh.tmpl). By moving from `just` to `chezmoi` we benefit from templating and better configuration. See:
