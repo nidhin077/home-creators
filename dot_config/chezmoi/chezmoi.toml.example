@@ -5,7 +5,7 @@
     [data.git.credential.helper.cache]
         timeout = 2592000 # 30 days
 
-    # add [data.github.user.prime] if you want the following in .gitconfig
+    # add [data.github.user.prime] if you want the following in .gitconfig:
     # [url "https://gitHubUserHandle:PERSONAL_ACCESS_TOKEN_VALUE@github.com"]
     #    insteadOf = https://github.com    
     [data.github.user.prime]
