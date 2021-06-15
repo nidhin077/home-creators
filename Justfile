@@ -98,12 +98,13 @@ setup: setup-jq setup-ipm setup-deno setup-data-engr
 # Perform routine maintenance
 maintain: 
     #!/bin/bash
-    chezmoi update
-    z4h update
-    asdf update
-    asdf plugin update --all
-    just setup
-    just setup-asdf-plugins-typical
+    # run updates and redirect stdout to /dev/null, stderr to stdout
+    chezmoi update 2>&1 1>/dev/null
+    asdf update 2>&1 1>/dev/null
+    asdf plugin update --all 2>&1 1>/dev/null
+    just setup 2>&1 1>/dev/null
+    just setup-asdf-plugins-typical 2>&1 1>/dev/null
+    echo "Run 'z4h update' manually for now"
 
 # Show the latest release version of the given repo
 inspect-github-repo-latest-version repo:
