@@ -213,6 +213,10 @@ If a release is Debian or Debian-like (e.g. Ubuntu and others) we should automat
 
 * Integrate [Helix](https://github.com/helix-editor/helix) as our opinionated terminal editor.
 
+## IP Management (IPM)
+
+* Integrate [augmentable-dev/askgit](https://github.com/augmentable-dev/askgit) or similar tool to query git repositories with SQL (generate reports, perform status checks, analyze codebases).
+
 ## File Management
 
 * Integrate [Wildland](https://wildland.io/), a collection of protocols, conventions, and software, which creates a union file system across S3, WebDAV, K8s, and other storage providers.
