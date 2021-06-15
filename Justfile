@@ -95,15 +95,25 @@ setup: setup-jq setup-ipm setup-deno setup-data-engr
     denoStdLibVersion=`curl -s https://api.github.com/repos/denoland/deno_std/releases | jq '.[0].name' -r`
     deno install --allow-net --allow-read --quiet --force --name file-server https://deno.land/std@${denoStdLibVersion}/http/file_server.ts
 
+_execute-and-report cmd:
+    #!/bin/bash
+    # run command and redirect stdout to /dev/null, stderr to stdout
+    result=`{{cmd}} 2>&1 1>/dev/null`
+    if [ -z "$result" ]; then
+        echo "[{{cmd}}] done"
+    else
+        echo "[{{cmd}}] $result"
+    fi
+
 # Perform routine maintenance
 maintain: 
     #!/bin/bash
     # run updates and redirect stdout to /dev/null, stderr to stdout
-    chezmoi update 2>&1 1>/dev/null
-    asdf update 2>&1 1>/dev/null
-    asdf plugin update --all 2>&1 1>/dev/null
-    just setup 2>&1 1>/dev/null
-    just setup-asdf-plugins-typical 2>&1 1>/dev/null
+    just _execute-and-report 'chezmoi update'
+    just _execute-and-report 'asdf update'
+    just _execute-and-report 'asdf plugin update --all'
+    just _execute-and-report 'just setup'
+    just _execute-and-report 'just setup-asdf-plugins-typical'
     echo "Run 'z4h update' manually for now"
 
 # Show the latest release version of the given repo
