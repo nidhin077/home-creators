@@ -27,8 +27,7 @@ repo-ensure gitURL context="interactive":
         git -C "$workspaceHome" pull --quiet 
     else
         mkdir -p `dirname "$workspaceHome"`
-        curl -Lsfo /dev/null https://{{gitURL}} || (echo "https://{{gitURL}} is not a valid URL"; exit 1)
-        git clone https://{{gitURL}} "$workspaceHome" --quiet
+        git clone "https://{{gitURL}}" "$workspaceHome" --quiet || (echo "https://{{gitURL}} is not a valid URL"; exit 1)
         if [ -f "$workspaceHome/.envrc" ]; then
             direnv allow "$workspaceHome"
         fi
