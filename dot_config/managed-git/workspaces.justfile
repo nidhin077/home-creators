@@ -1,8 +1,8 @@
-# Report configuration
+# Show all Git repos in managed Git workspaces home
 inspect:
     #!/bin/bash
     set -euo pipefail
-    tree -d -L 4 `pwd`
+    multi-git-status -d 0
 
 # Create a new managed Git repo directory using proper structure
 repo-init gitURL:

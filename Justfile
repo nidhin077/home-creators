@@ -18,6 +18,7 @@ doctor:
     echo "pass `pass version | grep -oh 'v[0-9]*\.[0-9]*\.[0-9]*'`"
     jq --version
     git-semtag --version
+    echo "multi-git-status `multi-git-status --version`"
     mlr --version
     echo "daff `daff version`"
     fsql --version
@@ -38,7 +39,7 @@ setup-jq:
 setup-deno:
     #!/bin/bash
     set -euo pipefail
-    export UDD_VERSION=`curl -s https://api.github.com/repos/hayd/deno-udd/tags  | jq '.[0].name' -r`
+    export UDD_VERSION=`curl -s https://api.github.com/repos/hayd/deno-udd/tags | jq '.[0].name' -r`
     deno install -A -f -n udd --quiet https://deno.land/x/udd@${UDD_VERSION}/main.ts
 
 # Install the named plugin (or update it if it's already installed) and its latest stable version
@@ -82,6 +83,8 @@ setup-ipm:
     set -euo pipefail
     curl -Ls "https://raw.githubusercontent.com/pnikosis/semtag/master/semtag" > {{userBinariesHome}}/git-semtag
     chmod +x {{userBinariesHome}}/git-semtag
+    curl -Ls "https://raw.githubusercontent.com/fboender/multi-git-status/master/mgitstatus" > {{userBinariesHome}}/multi-git-status
+    chmod +x {{userBinariesHome}}/multi-git-status
 
 # Install default assets
 setup: setup-jq setup-ipm setup-deno setup-data-engr
@@ -90,7 +93,7 @@ setup: setup-jq setup-ipm setup-deno setup-data-engr
     just setup-github-binary-latest-pipe kashav/fsql 'fsql-${ASSET_VERSION:1}-linux-amd64.tar.gz' 'tar -xz -C {{userBinariesHome}} --strip-components=1 linux-amd64/fsql'
     just setup-github-binary-latest TheWaWaR/simple-http-server 'x86_64-unknown-linux-musl-simple-http-server' {{userBinariesHome}}/simple-http-server
     denoStdLibVersion=`curl -s https://api.github.com/repos/denoland/deno_std/releases | jq '.[0].name' -r`
-    deno install --allow-net --allow-read --quiet ----name file-server https://deno.land/std@${denoStdLibVersion}/http/file_server.ts
+    deno install --allow-net --allow-read --quiet --force --name file-server https://deno.land/std@${denoStdLibVersion}/http/file_server.ts
 
 # Perform routine maintenance
 maintain: 
