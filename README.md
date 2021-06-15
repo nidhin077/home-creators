@@ -75,7 +75,11 @@ homectl maintain
 PRs are welcome. If you're making changes directly (without a PR), after updating and before pushing code, tag the release:
 
 ```bash
+chezmoi cd
+# <git commit ...>
+git-chglog --output CHANGELOG.md
 git-semtag final && git push
+# or git-semtag final -v "vN.N.N" && git push
 ```
 
 # What's Installed
