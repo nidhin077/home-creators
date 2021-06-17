@@ -84,6 +84,11 @@ git-semtag final && git push
 # or git-semtag final -v "vN.N.N" && git push
 ```
 
+# FAQ
+
+* Why do I see `jq: error (at <stdin>:1): Cannot index object with number` at the CLI sometimes?
+  * We use the GitHub API to get the latest versions of repos. For example `curl -s https://api.github.com/repos/asdf-vm/asdf/tags | jq '.[0].name' -r` returns the latest version of the ASDF library. When GitHub reaches its limit the `https://api.github.com/repos/asdf-vm/asdf/tags` URL will return `503 Forbidden` and then `jq` will fail. The message `jq: error (at <stdin>:1): Cannot index object with number` fools us into thinking the issue is with `jq` but the issues is that GitHub reached the API rate limit per hour.
+
 # What's Installed
 
 * We use `$HOME/bin` for binaries whenever possible instead globally installing them using `sudo`.
