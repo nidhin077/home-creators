@@ -27,6 +27,8 @@ doctor:
     asdf current direnv | sed 's/^/  /'
     asdf current deno | sed 's/^/  /'
     asdf current zoxide | sed 's/^/  /'
+    asdf current exa | sed 's/^/  /'
+    asdf current broot | sed 's/^/  /'
     asdf current git-chglog | sed 's/^/  /'
 
 # Install latest version of jq JSON processor from GitHub
@@ -107,7 +109,7 @@ _execute-and-report cmd:
     fi
 
 # Perform routine maintenance
-maintain: setup setup-asdf-plugins-typical
+maintain:
     #!/bin/bash
     # run updates and redirect stdout to /dev/null, stderr to stdout
     just _execute-and-report 'chezmoi update'
@@ -142,6 +144,6 @@ setup-asdf-plugins-typical:
     #!/bin/bash
     set -euo pipefail
     just setup-asdf-plugin-global zoxide https://github.com/nyrst/asdf-zoxide.git
+    just setup-asdf-plugin-global exa https://github.com/nyrst/asdf-exa.git
     just setup-asdf-plugin-global broot https://github.com/cmur2/asdf-broot.git
-    just setup-asdf-plugin git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
-    asdf global git-chglog latest
+    just setup-asdf-plugin-global git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
