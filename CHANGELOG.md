@@ -2,6 +2,12 @@
 ## Netspective Studios Creators Home Changelog
 
 
+<a name="v0.9.4"></a>
+## [v0.9.4] - 2021-06-17
+### Feat
+- add exa enhanced ls tool
+
+
 <a name="v0.9.3"></a>
 ## [v0.9.3] - 2021-06-17
 ### Feat
@@ -197,7 +203,8 @@
 - refer to new repo
 
 
-[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.3...HEAD
+[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.4...HEAD
+[v0.9.4]: https://github.com/netspective-studios/home-creators/compare/v0.9.3...v0.9.4
 [v0.9.3]: https://github.com/netspective-studios/home-creators/compare/v0.9.2...v0.9.3
 [v0.9.2]: https://github.com/netspective-studios/home-creators/compare/v0.9.1...v0.9.2
 [v0.9.1]: https://github.com/netspective-studios/home-creators/compare/v0.9.0...v0.9.1
