@@ -1,6 +1,15 @@
 <a name="unreleased"></a>
 ## Netspective Studios Creators Home Changelog
 
+### Feat
+- add zoxide 'cd' enhancement utility
+
+
+<a name="v0.9.1"></a>
+## [v0.9.1] - 2021-06-15
+### Changelog
+- add CHANGELOG.md defaults
+
 
 <a name="v0.9.0"></a>
 ## [v0.9.0] - 2021-06-15
@@ -179,7 +188,8 @@
 - refer to new repo
 
 
-[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.1...HEAD
+[v0.9.1]: https://github.com/netspective-studios/home-creators/compare/v0.9.0...v0.9.1
 [v0.9.0]: https://github.com/netspective-studios/home-creators/compare/v0.8.1...v0.9.0
 [v0.8.1]: https://github.com/netspective-studios/home-creators/compare/v0.8.0...v0.8.1
 [v0.8.0]: https://github.com/netspective-studios/home-creators/compare/v0.7.12...v0.8.0
