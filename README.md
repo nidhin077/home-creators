@@ -38,6 +38,7 @@ z4h source -- ~/.config/z4h-zshrc/*.auto.zshrc
 eval "$(asdf exec direnv hook zsh)"
 direnv() { asdf exec direnv "$@"; }
 eval "$(zoxide init zsh)"
+eval "$(broot --print-shell-function zsh)"
 EOF
 exit
 ```

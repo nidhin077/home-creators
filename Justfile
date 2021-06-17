@@ -142,5 +142,6 @@ setup-asdf-plugins-typical:
     #!/bin/bash
     set -euo pipefail
     just setup-asdf-plugin-global zoxide https://github.com/nyrst/asdf-zoxide.git
+    just setup-asdf-plugin-global broot https://github.com/cmur2/asdf-broot.git
     just setup-asdf-plugin git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
     asdf global git-chglog latest

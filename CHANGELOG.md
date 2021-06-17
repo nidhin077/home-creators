@@ -1,6 +1,9 @@
 <a name="unreleased"></a>
 ## Netspective Studios Creators Home Changelog
 
+
+<a name="v0.9.2"></a>
+## [v0.9.2] - 2021-06-17
 ### Feat
 - add zoxide 'cd' enhancement utility
 
@@ -188,7 +191,8 @@
 - refer to new repo
 
 
-[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.1...HEAD
+[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.2...HEAD
+[v0.9.2]: https://github.com/netspective-studios/home-creators/compare/v0.9.1...v0.9.2
 [v0.9.1]: https://github.com/netspective-studios/home-creators/compare/v0.9.0...v0.9.1
 [v0.9.0]: https://github.com/netspective-studios/home-creators/compare/v0.8.1...v0.9.0
 [v0.8.1]: https://github.com/netspective-studios/home-creators/compare/v0.8.0...v0.8.1
