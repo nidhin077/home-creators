@@ -192,6 +192,18 @@ homectl setup-asdf-plugin-global gitui https://github.com/looztra/asdf-gitui
 
 Need to consider adding the following over time.
 
+## Use `.netrc` and -n with `curl` commands
+
+See [Do you use curl? Stop using -u. Please use curl -n and .netrc](https://community.apigee.com/articles/39911/do-you-use-curl-stop-using-u-please-use-curl-n-and.html). We should update all references to `curl` to include `curl -n` so that `.netrc` is optionally pulled in when we need to use the following configuration:
+
+```
+machine api.github.com
+  login gitHubUserName
+  password gh-personal-access-token
+```
+
+When we run into problems of API rate limiting with anonymous use of `api.github.com` then users can easily switch to authenticated use of `api.github.com` which will increase rate limits.
+
 ## Use `asdf install` with `.tool-versions` to auto-install
 
 Per [asdf .tool-versions documentation](https://asdf-vm.com/#/core-configuration):
