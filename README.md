@@ -33,12 +33,9 @@ Finalize `.zshrc` setup and then exit your shell:
 
 ```bash
 cat << 'EOF' >> ~/.zshrc
-z4h source ~/.asdf/asdf.sh
-z4h source -- ~/.config/z4h-zshrc/*.auto.zshrc
-eval "$(asdf exec direnv hook zsh)"
-direnv() { asdf exec direnv "$@"; }
-eval "$(zoxide init zsh)"
-eval "$(broot --print-shell-function zsh)"
+z4h source ~/.asdf/asdf.sh                      # version management
+z4h source -- ~/.config/z4h-zshrc/*.auto.zshrc  # automatically loaded zshrc's
+z4h source ~/.config/z4h-zshrc/homectl.zshrc    # homectl zshrc coordinator
 EOF
 exit
 ```
