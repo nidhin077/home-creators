@@ -2,6 +2,12 @@
 ## Netspective Studios Creators Home Changelog
 
 
+<a name="v0.9.5"></a>
+## [v0.9.5] - 2021-06-17
+### Fix
+- add ~/.config/z4h-zshrc/homectl.zshrc for common setup
+
+
 <a name="v0.9.4"></a>
 ## [v0.9.4] - 2021-06-17
 ### Feat
@@ -126,16 +132,11 @@
 
 <a name="v0.7.2"></a>
 ## [v0.7.2] - 2021-06-12
-### Fix
-- make installations silent
-
-
-<a name="v0.7.1"></a>
-## [v0.7.1] - 2021-06-12
 ### Doc
 - refine instructions
 
 ### Fix
+- make installations silent
 - remove debugging output
 - grammar
 - hard-code chezmoi config
@@ -203,7 +204,8 @@
 - refer to new repo
 
 
-[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.4...HEAD
+[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.5...HEAD
+[v0.9.5]: https://github.com/netspective-studios/home-creators/compare/v0.9.4...v0.9.5
 [v0.9.4]: https://github.com/netspective-studios/home-creators/compare/v0.9.3...v0.9.4
 [v0.9.3]: https://github.com/netspective-studios/home-creators/compare/v0.9.2...v0.9.3
 [v0.9.2]: https://github.com/netspective-studios/home-creators/compare/v0.9.1...v0.9.2
@@ -221,8 +223,7 @@
 [v0.7.5]: https://github.com/netspective-studios/home-creators/compare/v0.7.4...v0.7.5
 [v0.7.4]: https://github.com/netspective-studios/home-creators/compare/v0.7.3...v0.7.4
 [v0.7.3]: https://github.com/netspective-studios/home-creators/compare/v0.7.2...v0.7.3
-[v0.7.2]: https://github.com/netspective-studios/home-creators/compare/v0.7.1...v0.7.2
-[v0.7.1]: https://github.com/netspective-studios/home-creators/compare/v0.7.0...v0.7.1
+[v0.7.2]: https://github.com/netspective-studios/home-creators/compare/v0.7.0...v0.7.2
 [v0.7.0]: https://github.com/netspective-studios/home-creators/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/netspective-studios/home-creators/compare/v0.5.3...v0.6.0
 [v0.5.3]: https://github.com/netspective-studios/home-creators/compare/v0.5.2...v0.5.3
