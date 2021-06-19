@@ -57,6 +57,9 @@ Customize your aliases and functions in `~/.config/z4h-zshrc/*.auto.zshrc` -- ba
 # $HOME/.pgpass and $HOME/.psqlrc are part of chezmoi dotfiles
 sudo apt-get install postgresql-client -y -qq
 
+ # install DBA type utilities, usually in $HOME/bin
+homectl setup-db-admin
+
 # if you're doing your own software builds (instead of using binaries)
 sudo apt-get -y -qq install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libxml2-dev xz-utils tk-dev libxmlsec1-dev libreadline-dev libffi-dev libbz2-dev liblzma-dev llvm
 ```

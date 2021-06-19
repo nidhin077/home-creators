@@ -70,6 +70,13 @@ setup-data-engr:
     curl -Ls "https://github.com/netspective-studios/redistributables/raw/master/linux/daff-1.3.46-haxe2cpp-amd64-debug" > {{userBinariesHome}}/daff
     chmod +x {{userBinariesHome}}/daff
 
+# Install database admin tools for PostgreSQL
+setup-db-admin-postgres: 
+    just setup-github-binary-latest-pipe lesovsky/pgcenter 'pgcenter_${ASSET_VERSION:1}_linux_amd64.tar.gz' 'tar -xz -C {{userBinariesHome}} pgcenter'
+
+# Install database admin tools for various engines just as PostgreSQL
+setup-db-admin: setup-db-admin-postgres
+
 # Install additional data engineering tools from GitHub
 setup-data-engr-enhanced: setup-data-engr
     #!/bin/bash    
