@@ -1,6 +1,12 @@
 <a name="unreleased"></a>
 ## Netspective Studios Creators Home Changelog
 
+### Doc
+- add curl -n and .netrc TODO
+
+### Feat
+- add setup-db-admin task for DBA utils like pgcenter
+
 
 <a name="v0.9.5"></a>
 ## [v0.9.5] - 2021-06-17
