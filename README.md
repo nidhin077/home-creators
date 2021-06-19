@@ -80,6 +80,7 @@ PRs are welcome. If you're making changes directly (without a PR), after updatin
 chezmoi cd
 # <git commit ...>
 git-chglog --output CHANGELOG.md
+git commit -m "auto generate content" CHANGELOG.md
 git-semtag final && git push
 # or git-semtag final -v "vN.N.N" && git push
 ```
