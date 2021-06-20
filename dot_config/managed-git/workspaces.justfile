@@ -2,7 +2,11 @@
 inspect:
     #!/bin/bash
     set -euo pipefail
-    multi-git-status -d 0
+    git mgitstatus -d 0
+
+# Show summary of commits across all authors and repos over the past 3 days
+@standup:
+    git standup -sm 5 -d 3 -a "all"
 
 # Create a new managed Git repo directory using proper structure
 repo-init gitURL:

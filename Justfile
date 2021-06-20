@@ -93,8 +93,10 @@ setup-ipm:
     set -euo pipefail
     curl -Ls "https://raw.githubusercontent.com/pnikosis/semtag/master/semtag" > {{userBinariesHome}}/git-semtag
     chmod +x {{userBinariesHome}}/git-semtag
-    curl -Ls "https://raw.githubusercontent.com/fboender/multi-git-status/master/mgitstatus" > {{userBinariesHome}}/multi-git-status
-    chmod +x {{userBinariesHome}}/multi-git-status
+    curl -Ls "https://raw.githubusercontent.com/fboender/multi-git-status/master/mgitstatus" > {{userBinariesHome}}/git-mgitstatus
+    chmod +x {{userBinariesHome}}/git-mgitstatus
+    curl -Ls "https://raw.githubusercontent.com/kamranahmedse/git-standup/master/git-standup" > {{userBinariesHome}}/git-standup
+    chmod +x {{userBinariesHome}}/git-standup
 
 # Install default assets
 setup: setup-jq setup-ipm setup-deno setup-data-engr
