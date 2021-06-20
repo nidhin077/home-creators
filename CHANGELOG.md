@@ -1,7 +1,17 @@
 <a name="unreleased"></a>
 ## Netspective Studios Creators Home Changelog
 
+### Feat
+- add git-standup utility
+
+### Fix
+- switch wscd to cdws
+
+
+<a name="v0.9.6"></a>
+## [v0.9.6] - 2021-06-19
 ### Doc
+- add changelog generation instructions
 - add curl -n and .netrc TODO
 
 ### Feat
@@ -210,7 +220,8 @@
 - refer to new repo
 
 
-[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.5...HEAD
+[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.6...HEAD
+[v0.9.6]: https://github.com/netspective-studios/home-creators/compare/v0.9.5...v0.9.6
 [v0.9.5]: https://github.com/netspective-studios/home-creators/compare/v0.9.4...v0.9.5
 [v0.9.4]: https://github.com/netspective-studios/home-creators/compare/v0.9.3...v0.9.4
 [v0.9.3]: https://github.com/netspective-studios/home-creators/compare/v0.9.2...v0.9.3
