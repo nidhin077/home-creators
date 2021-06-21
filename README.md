@@ -97,6 +97,7 @@ git-semtag final && git push
 * We use [asdf](https://asdf-vm.com/) as our package manager to install all languages and utilities possible so that they can be easily installed and, more importantly, support multiple versions simultaneously.
 * We use [just](https://github.com/casey/just) command runner to execute tasks (available in `$HOME/bin`). We favor `just` over `make` for new packages but `make` is still a great tool for legacy requirements.
 * We use [pass](https://www.passwordstore.org/) the standard unix password manager for managing secrets that should not be in plaintext.
+* To see the rest, run `homectl doctor` which lists all the "standard" (typical) tools and their versions
 
 ## Secrets Management
 
@@ -251,8 +252,9 @@ If a release is Debian or Debian-like (e.g. Ubuntu and others) we should automat
 
 ## Data Engineering
 
-* [db-to-sqlite](https://github.com/simonw/db-to-sqlite) CLI tool for exporting tables or queries from any SQL database to a SQLite file to make data portable.
+* [sqlite-utils-memory](https://simonwillison.net/2021/Jun/19/sqlite-utils-memory/) can join and select CSV and JSON data via stdin with an in-memory SQLite database
 * [sqlite-utils](https://github.com/simonw/sqlite-utils) CLI utility and Python library for manipulating SQLite databases
+* [db-to-sqlite](https://github.com/simonw/db-to-sqlite) CLI tool for exporting tables or queries from any SQL database to a SQLite file to make data portable.
 * [jOOQ Parser](https://www.jooq.org/translate/) to translate any SQL statement(s) to a different dialect
 * A list of command line tools for manipulating structured text data is available at https://github.com/dbohdan/structured-text-tools
 * [eBay's TSV Utilities](https://github.com/eBay/tsv-utils): Command line tools for large, tabular data files. Filtering, statistics, sampling, joins and more. 
