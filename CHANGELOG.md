@@ -3,6 +3,7 @@
 
 ### Doc
 - improve contributor instructions
+- improve contributor instructions
 
 
 <a name="v0.9.8"></a>
