@@ -23,6 +23,7 @@ doctor:
     echo "daff `daff version`"
     fsql --version
     simple-http-server --version
+    gitql --version
     echo "asdf `asdf --version`"
     asdf current direnv | sed 's/^/  /'
     asdf current deno | sed 's/^/  /'
@@ -97,6 +98,11 @@ setup-ipm:
     chmod +x {{userBinariesHome}}/git-mgitstatus
     curl -Ls "https://raw.githubusercontent.com/kamranahmedse/git-standup/master/git-standup" > {{userBinariesHome}}/git-standup
     chmod +x {{userBinariesHome}}/git-standup
+    just setup-github-binary-latest-cmd filhodanuvem/gitql 'gitql-linux64.zip' 'unzip -o -d {{userBinariesHome}} -qq $ASSET_TMP'
+    chmod +x {{userBinariesHome}}/gitql
+    # allow use through 'git query' instead of just 'gitql':
+    rm -f {{userBinariesHome}}/git-query
+    ln -s {{userBinariesHome}}/gitql {{userBinariesHome}}/git-query
 
 # Install default assets
 setup: setup-jq setup-ipm setup-deno setup-data-engr
@@ -147,6 +153,16 @@ setup-github-binary-latest-pipe repo archive pipeCmd:
     set -euo pipefail
     ASSET_VERSION=`curl -s https://api.github.com/repos/{{repo}}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
     curl -Ls https://github.com/{{repo}}/releases/download/${ASSET_VERSION}/{{archive}} | {{pipeCmd}}
+
+# Download github.com/{repo}/releases/download/LATEST/{archive} and run command with $ASSET_TMP then delete (useful for .zip files)
+setup-github-binary-latest-cmd repo archive cmd:
+    #!/bin/bash
+    set -euo pipefail
+    ASSET_VERSION=`curl -s https://api.github.com/repos/{{repo}}/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
+    ASSET_TMP="/tmp/{{archive}}"
+    curl -Ls https://github.com/{{repo}}/releases/download/${ASSET_VERSION}/{{archive}} -o $ASSET_TMP
+    {{cmd}}
+    rm -f $ASSET_TMP
 
 # Install typical asdf plugins and their latest versions (direnv, deno, git-chglog)
 setup-asdf-plugins-typical:
