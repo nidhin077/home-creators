@@ -197,6 +197,10 @@ homectl setup-asdf-plugin-global gitui https://github.com/looztra/asdf-gitui
 
 Need to consider adding the following over time.
 
+## Switch all Git-related `Justfile` repo-oriented commands to `git-*`
+
+So that we can call `git (command)`, switch commands in [mgitctl.justfile](dot_config/managed-git/mgitctl.justfile) and [workspaces.justfile](dot_config/managed-git/workspaces.justfile) into `get-*` shell scripts (or aliases).
+
 ## Use `.netrc` and -n with `curl` commands
 
 See [Do you use curl? Stop using -u. Please use curl -n and .netrc](https://community.apigee.com/articles/39911/do-you-use-curl-stop-using-u-please-use-curl-n-and.html). We should update all references to `curl` to include `curl -n` so that `.netrc` is optionally pulled in when we need to use the following configuration:
