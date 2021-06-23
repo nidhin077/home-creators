@@ -1,6 +1,22 @@
 <a name="unreleased"></a>
 ## Netspective Studios Creators Home Changelog
 
+### Doc
+- improve contributor instructions
+
+
+<a name="v0.9.8"></a>
+## [v0.9.8] - 2021-06-23
+### Doc
+- add git-* migration TODO
+- add sqlite-utils-memory to TODOs
+
+### Feat
+- add gitql to run SQL queries on git objects
+
+
+<a name="v0.9.7"></a>
+## [v0.9.7] - 2021-06-20
 ### Feat
 - add git-standup utility
 
@@ -220,7 +236,9 @@
 - refer to new repo
 
 
-[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.6...HEAD
+[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.8...HEAD
+[v0.9.8]: https://github.com/netspective-studios/home-creators/compare/v0.9.7...v0.9.8
+[v0.9.7]: https://github.com/netspective-studios/home-creators/compare/v0.9.6...v0.9.7
 [v0.9.6]: https://github.com/netspective-studios/home-creators/compare/v0.9.5...v0.9.6
 [v0.9.5]: https://github.com/netspective-studios/home-creators/compare/v0.9.4...v0.9.5
 [v0.9.4]: https://github.com/netspective-studios/home-creators/compare/v0.9.3...v0.9.4
