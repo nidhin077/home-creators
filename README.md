@@ -112,9 +112,11 @@ We use [Semantic Versioning](https://semver.org/) so be sure to learn and regula
 For example:
 
 ```bash
-git commit -am "git commit message"
-git-semtag final -v v0.5.0
-# or 'git-semtag final' without version to auto-compute semver based on heuristics
+chez cd
+# perform regular git commits
+git chglog --output CHANGELOG.md && git commit -am "auto-generate CHANGELOG.md" CHANGELOG.md
+git-semtag final
+# or 'git-semtag final -v "v0.5.0"' for specific version
 git push
 ```
 
