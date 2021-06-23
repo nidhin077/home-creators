@@ -114,7 +114,7 @@ For example:
 ```bash
 chez cd
 # perform regular git commits
-git chglog --output CHANGELOG.md && git commit -am "auto-generate CHANGELOG.md" CHANGELOG.md
+git chglog --output CHANGELOG.md && git commit -m "auto-generate CHANGELOG.md" CHANGELOG.md
 git-semtag final
 # or 'git-semtag final -v "v0.5.0"' for specific version
 git push
