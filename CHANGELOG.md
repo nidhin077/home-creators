@@ -2,6 +2,7 @@
 ## Netspective Studios Creators Home Changelog
 
 ### Doc
+- use 'git semtag' instead of git-semtag
 - improve contributor instructions
 - improve contributor instructions
 
