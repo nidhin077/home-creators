@@ -98,7 +98,7 @@ setup-ipm:
     chmod +x {{userBinariesHome}}/git-mgitstatus
     curl -Ls "https://raw.githubusercontent.com/kamranahmedse/git-standup/master/git-standup" > {{userBinariesHome}}/git-standup
     chmod +x {{userBinariesHome}}/git-standup
-    just setup-github-binary-latest-cmd filhodanuvem/gitql 'gitql-linux64.zip' 'unzip -o -d {{userBinariesHome}} -qq $ASSET_TMP'
+    just setup-github-binary-latest-cmd filhodanuvem/gitql 'gitql-linux-amd64.zip' 'unzip -o -d {{userBinariesHome}} -qq $ASSET_TMP'
     chmod +x {{userBinariesHome}}/gitql
     # allow use through 'git query' instead of just 'gitql':
     rm -f {{userBinariesHome}}/git-query
