@@ -11,7 +11,7 @@ If you're using a Debian-based distro you should be able to run this repo in any
 Bootstrap a Debian environment with required utilities:
 
 ```bash
-sudo apt-get -qq update && sudo apt-get install curl -y -qq && \
+cd $HOME && sudo apt-get -qq update && sudo apt-get install curl -y -qq && \
     curl -sSL https://raw.githubusercontent.com/netspective-studios/home-creators/master/bootstrap-admin-debian.sh | bash
 ```
 
@@ -43,7 +43,7 @@ exit
 Open a new terminal then complete the initial setup using `homectl`:
 
 ```zsh
-homectl setup setup-asdf-plugins-typical setup-data-engr-enhanced
+cd $HOME && homectl setup setup-asdf-plugins-typical setup-data-engr-enhanced
 ```
 
 After initial setup `cd ~ && just (cmd)` will be equivalent to `homectl (cmd)`. `homectl` is one of many aliases defined by the auto-imported [~/.config/z4h-zshrc/aliases.auto.zshrc](dot_config/z4h-zshrc/aliases.auto.zshrc.tmpl) file. Personalize `z4h` with your own preferences. Learn how to use `z4h` to [keep it up to date](https://github.com/romkatv/zsh4humans#updating) and understand the recommended [customization approach](https://github.com/romkatv/zsh4humans#customization).
