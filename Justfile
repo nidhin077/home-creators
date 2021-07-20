@@ -24,6 +24,7 @@ doctor:
     fsql --version
     simple-http-server --version
     gitql --version
+    echo "adlc `adlc show --version` (lib in $HOME/.local/share/adl)"
     echo "asdf `asdf --version`"
     asdf current direnv | sed 's/^/  /'
     asdf current deno | sed 's/^/  /'
@@ -61,6 +62,13 @@ setup-asdf-plugin plugin src="":
 # Install the named plugin, its latest stable release, and then set it as the global version
 setup-asdf-plugin-global plugin src="": (setup-asdf-plugin plugin src)
     asdf global {{plugin}} latest
+
+# Install common data and other governance tools liked ADL, protobuf, etc.
+setup-governance: 
+    #!/bin/bash    
+    set -euo pipefail
+    # we use $HOME in 'unzip $ASSET_TMP bin/adlc -d $HOME' command below because 'adlc' is in 'bin' which will putt it into $HOME/bin
+    just setup-github-binary-latest-cmd timbod7/adl 'adl-bindist-${ASSET_VERSION:1}-linux.zip' 'unzip -f -qq $ASSET_TMP bin/adlc -d $HOME & unzip -f -qq $ASSET_TMP "lib/*" -d $HOME/.local/share/adl'
 
 # Install common data engineering tools such Miller and daff from GitHub
 setup-data-engr: 
@@ -105,7 +113,7 @@ setup-ipm:
     ln -s {{userBinariesHome}}/gitql {{userBinariesHome}}/git-query
 
 # Install default assets
-setup: setup-jq setup-ipm setup-deno setup-data-engr
+setup: setup-jq setup-ipm setup-deno setup-data-engr setup-governance
     #!/bin/bash
     set -euo pipefail
     just setup-github-binary-latest-pipe kashav/fsql 'fsql-${ASSET_VERSION:1}-linux-amd64.tar.gz' 'tar -xz -C {{userBinariesHome}} --strip-components=1 linux-amd64/fsql'
