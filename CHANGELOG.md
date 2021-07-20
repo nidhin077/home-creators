@@ -2,6 +2,21 @@
 ## Netspective Studios Creators Home Changelog
 
 ### Doc
+- add a more complex instructional reference
+
+### Feat
+- add github.com/timbod7/adl governance util
+- fix gitql 2.2.1 release archive url
+- fix gitql 2.2.0 release download url
+
+### Fix
+- fetch gitql latest release archive
+- update installation step for wsl users
+
+
+<a name="v0.9.9"></a>
+## [v0.9.9] - 2021-06-23
+### Doc
 - use 'git semtag' instead of git-semtag
 - improve contributor instructions
 - improve contributor instructions
@@ -238,7 +253,8 @@
 - refer to new repo
 
 
-[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.8...HEAD
+[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.9...HEAD
+[v0.9.9]: https://github.com/netspective-studios/home-creators/compare/v0.9.8...v0.9.9
 [v0.9.8]: https://github.com/netspective-studios/home-creators/compare/v0.9.7...v0.9.8
 [v0.9.7]: https://github.com/netspective-studios/home-creators/compare/v0.9.6...v0.9.7
 [v0.9.6]: https://github.com/netspective-studios/home-creators/compare/v0.9.5...v0.9.6
