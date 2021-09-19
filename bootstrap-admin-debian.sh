@@ -15,7 +15,7 @@ fi
 # TODO: check if non-Debian (e.g. non-Ubuntu) based OS and stop; later we'll add ability for non-Debian distros
 
 sudo apt-get -qq update
-sudo apt-get -y -qq install curl git jq pass unzip bzip2 tree make
+sudo apt-get -y -qq install curl git jq pass unzip bzip2 tree make bsdmainutils
 curl -sSL https://git.io/git-extras-setup | sudo bash /dev/stdin
 
 curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to $HOME/bin
