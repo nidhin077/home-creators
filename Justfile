@@ -176,7 +176,7 @@ setup-github-binary-latest-cmd repo archive cmd:
 setup-asdf-plugins-typical:
     #!/bin/bash
     set -euo pipefail
-    just setup-asdf-plugin-global zoxide https://github.com/nyrst/asdf-zoxide.git
+    just setup-asdf-plugin-global zoxide https://github.com/netspective-studios/asdf-zoxide.git
     just setup-asdf-plugin-global exa https://github.com/nyrst/asdf-exa.git
     just setup-asdf-plugin-global broot https://github.com/cmur2/asdf-broot.git
     just setup-asdf-plugin-global git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
