@@ -6,3 +6,4 @@ alias deno-lint="deno lint --unstable"
 alias deno-test="deno test -A --unstable"
 alias deno-testc="deno test -A --unstable --coverage"
 alias deno-clear-caches="rm -rf $(deno --unstable info --json | jq -r .denoDir)"
+alias deno-task='deno run --unstable -A $(git rev-parse --show-toplevel)/Taskfile.ts'
