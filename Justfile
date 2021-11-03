@@ -134,8 +134,9 @@ _execute-and-report cmd:
 # Perform routine maintenance
 maintain:
     #!/bin/bash
+    # we do not want to redirect chezmoi stdout since it might ask for input
+    chezmoi update
     # run updates and redirect stdout to /dev/null, stderr to stdout
-    just _execute-and-report 'chezmoi update'
     just _execute-and-report 'asdf update'
     just _execute-and-report 'asdf plugin update --all'
     just _execute-and-report 'just setup'
