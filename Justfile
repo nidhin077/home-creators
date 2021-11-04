@@ -24,6 +24,7 @@ doctor:
     fsql --version
     simple-http-server --version
     gitql --version
+    envsubst --version | head -n 1
     echo "adlc `adlc show --version` (lib in $HOME/.local/share/adl)"
     echo "asdf `asdf --version`"
     asdf current direnv | sed 's/^/  /'
