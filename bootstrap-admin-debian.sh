@@ -16,6 +16,13 @@ fi
 
 sudo apt-get -qq update
 sudo apt-get -y -qq install curl git jq pass unzip bzip2 tree make bsdmainutils time gettext-base wget
+
+OSQ_VERSION=`curl -s https://api.github.com/repos/osquery/osquery/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
+OSQ_APT_CACHE=/var/cache/apt/archives
+OSQ_DEB_FILE=osquery_${OSQ_VERSION}-1.linux_amd64.deb
+sudo curl -sL -o $OSQ_APT_CACHE/$OSQ_DEB_FILE https://pkg.osquery.io/deb/$OSQ_DEB_FILE
+sudo dpkg -i $OSQ_APT_CACHE/$OSQ_DEB_FILE
+
 curl -sSL https://git.io/git-extras-setup | sudo bash /dev/stdin
 
 curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to $HOME/bin
@@ -48,6 +55,7 @@ echo "******************************************************************"
 echo "** Netspective Studios Home (NSH) admin boostrap complete.      **"
 echo "** Installed:                                                   **"
 echo "**   - curl, git, jq, pass, unzip, bzip2, tree, and make        **"
+echo "**   - osquery (for endpoint observability)                     **"
 echo "**   - asdf (version manager for languages, runtimes, etc.)     **"
 echo "**   - just (command runner)                                    **"
 echo "**   - deno (V8 runtime for JavaScript and TypeScript)          **"
