@@ -18,7 +18,7 @@ doctor:
     echo "pass `pass version | grep -oh 'v[0-9]*\.[0-9]*\.[0-9]*'`"
     jq --version
     git-semtag --version
-    echo "multi-git-status `multi-git-status --version`"
+    echo "git-mgitstatus `git-mgitstatus --version`"
     mlr --version
     echo "daff `daff version`"
     fsql --version
