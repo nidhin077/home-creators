@@ -69,7 +69,7 @@ setup-governance:
     #!/bin/bash    
     set -euo pipefail
     # we use $HOME in 'unzip $ASSET_TMP bin/adlc -d $HOME' command below because 'adlc' is in 'bin' which will putt it into $HOME/bin
-    just setup-github-binary-latest-cmd timbod7/adl 'adl-bindist-${ASSET_VERSION:1}-linux.zip' 'unzip -f -qq $ASSET_TMP bin/adlc -d $HOME & unzip -f -qq $ASSET_TMP "lib/*" -d $HOME/.local/share/adl'
+    just setup-github-binary-latest-cmd timbod7/adl 'adl-bindist-${ASSET_VERSION:1}-linux.zip' 'unzip -o -qq $ASSET_TMP bin/adlc -d $HOME & unzip -o -qq $ASSET_TMP "lib/*" -d $HOME/.local/share/adl'
 
 # Install common data engineering tools such Miller and daff from GitHub
 setup-data-engr: 
