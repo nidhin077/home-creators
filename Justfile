@@ -29,6 +29,7 @@ doctor:
     echo "asdf `asdf --version`"
     asdf current direnv | sed 's/^/  /'
     asdf current deno | sed 's/^/  /'
+    asdf current opa | sed 's/^/  /'
     asdf current zoxide | sed 's/^/  /'
     asdf current exa | sed 's/^/  /'
     asdf current broot | sed 's/^/  /'
