@@ -174,7 +174,7 @@ setup-github-binary-latest-cmd repo archive cmd:
     {{cmd}}
     rm -f $ASSET_TMP
 
-# Install typical asdf plugins and their latest versions (direnv, deno, git-chglog)
+# Install typical asdf plugins and their latest versions (direnv, deno, git-chglog, open policy agent)
 setup-asdf-plugins-typical:
     #!/bin/bash
     set -euo pipefail
@@ -182,3 +182,4 @@ setup-asdf-plugins-typical:
     just setup-asdf-plugin-global exa https://github.com/nyrst/asdf-exa.git
     just setup-asdf-plugin-global broot https://github.com/cmur2/asdf-broot.git
     just setup-asdf-plugin-global git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
+    just setup-asdf-plugin-global opa https://github.com/tochukwuvictor/asdf-opa.git
