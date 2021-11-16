@@ -19,7 +19,11 @@ We use [chezmoi](https://www.chezmoi.io/) with templates to manage our dotfiles 
 
 ```bash
 # Personalize your chezmoi config
-vi ~/.config/chezmoi/chezmoi.toml
+vim.tiny ~/.config/chezmoi/chezmoi.toml
+```
+
+```bash
+# Apply your chezmoi template
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply netspective-studios/home-creators
 ```
 
