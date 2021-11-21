@@ -76,7 +76,7 @@ setup-governance:
 setup-data-engr: 
     #!/bin/bash    
     set -euo pipefail
-    just setup-github-binary-latest johnkerl/miller mlr.linux.x86_64 {{userBinariesHome}}/mlr
+    just setup-github-binary-latest johnkerl/miller mlr.linux_x86_64 {{userBinariesHome}}/mlr
     just setup-github-binary-latest-pipe xo/usql 'usql-${ASSET_VERSION:1}-linux-amd64.tar.bz2' 'tar -xj -C {{userBinariesHome}} usql'
     curl -Ls "https://github.com/netspective-studios/redistributables/raw/master/linux/daff-1.3.46-haxe2cpp-amd64-debug" > {{userBinariesHome}}/daff
     chmod +x {{userBinariesHome}}/daff
