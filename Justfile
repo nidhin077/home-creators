@@ -83,6 +83,8 @@ setup-data-engr:
 
 # Install database admin tools for PostgreSQL
 setup-db-admin-postgres: 
+    #!/bin/bash    
+    set -euo pipefail
     just setup-github-binary-latest-pipe lesovsky/pgcenter 'pgcenter_${ASSET_VERSION:1}_linux_amd64.tar.gz' 'tar -xz -C {{userBinariesHome}} pgcenter'
 
 # Install database admin tools for various engines just as PostgreSQL
