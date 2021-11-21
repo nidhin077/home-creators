@@ -34,6 +34,7 @@ doctor:
     asdf current exa | sed 's/^/  /'
     asdf current broot | sed 's/^/  /'
     asdf current git-chglog | sed 's/^/  /'
+    asdf current github-cli | sed 's/^/  /'
 
 # Install latest version of jq JSON processor from GitHub
 setup-jq: 
