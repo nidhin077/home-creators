@@ -25,6 +25,7 @@ doctor:
     simple-http-server --version
     gitql --version
     envsubst --version | head -n 1
+    echo "Deno in PATH for VS Code, et. al: $HOME/bin/deno -> `readlink -f $HOME/bin/deno`"
     echo "adlc `adlc show --version` (lib in $HOME/.local/share/adl)"
     echo "asdf `asdf --version`"
     asdf current direnv | sed 's/^/  /'
@@ -49,6 +50,8 @@ setup-jq:
 setup-deno:
     #!/bin/bash
     set -euo pipefail
+    # deno must be in a "normal" path for VS Code, etc.
+    rm -f $HOME/bin/deno && ln -s $HOME/.asdf/shims/deno $HOME/bin/deno    
     export UDD_VERSION=`curl -s https://api.github.com/repos/hayd/deno-udd/tags | jq '.[0].name' -r`
     deno install -A -f -n udd --quiet https://deno.land/x/udd@${UDD_VERSION}/main.ts
 
