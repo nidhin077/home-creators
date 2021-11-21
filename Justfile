@@ -35,6 +35,7 @@ doctor:
     asdf current broot | sed 's/^/  /'
     asdf current git-chglog | sed 's/^/  /'
     asdf current github-cli | sed 's/^/  /'
+    asdf current lab | sed 's/^/  /'    
 
 # Install latest version of jq JSON processor from GitHub
 setup-jq: 
@@ -188,3 +189,5 @@ setup-asdf-plugins-typical:
     just setup-asdf-plugin-global git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
     just setup-asdf-plugin-global opa https://github.com/tochukwuvictor/asdf-opa.git
     just setup-asdf-plugin-global github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git
+    just setup-asdf-plugin-global lab https://github.com/particledecay/asdf-lab.git
+    
