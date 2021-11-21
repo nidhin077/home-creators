@@ -186,3 +186,4 @@ setup-asdf-plugins-typical:
     just setup-asdf-plugin-global broot https://github.com/cmur2/asdf-broot.git
     just setup-asdf-plugin-global git-chglog https://github.com/GoodwayGroup/asdf-git-chglog.git
     just setup-asdf-plugin-global opa https://github.com/tochukwuvictor/asdf-opa.git
+    just setup-asdf-plugin-global github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git
