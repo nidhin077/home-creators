@@ -1,5 +1,6 @@
 # File: ~/.config/direnv/direnvrc
-source "$(asdf direnv hook asdf)"
-
 # Uncomment the following line to make direnv silent by default.
 # export DIRENV_LOG_FORMAT=""
+export DIRENV_LOG_FORMAT=$'\E[1;30mdirenv: %s\E[0m'
+
+source "$($HOME/.asdf/bin/asdf direnv hook asdf)"
