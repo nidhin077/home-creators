@@ -1,6 +1,58 @@
 <a name="unreleased"></a>
 ## Netspective Studios Creators Home Changelog
 
+### Add
+- wget package installation
+- time package installation
+
+### Doc
+- improve message
+- update README
+
+### Feat
+- implement Git static passwords
+- add git credential env vars helper
+- add git credential env vars helper
+- add Deno into $HOME/bin for VSCode deno.path
+- add glab GitLab CLI package
+- add GitLab CLI package
+- add github-cli package
+- add github-cli package
+- add github-cli package
+- report open policy agent (OPA) version
+- open policy agent (OPA) is typical plugin
+- add osQuery by default
+- add envsubst version in doctor target
+- add gettext-base for envsubst command
+
+### Fit
+- git-mgitstatus was using the wrong cmd name
+
+### Fix
+- add env var prefix
+- add env var prefix
+- add env var prefix
+- add env var prefix
+- invalid key name
+- typo in template
+- typo in template
+- revert to original asdf-zoxide plugin repo
+- show direnv items dimmed
+- don't assume ASDF is in path (for bash)
+- put task into bash script
+- johnkerl/miller binary name changed
+- adl unzip commands were incorrect
+- Installation issue in zoxide version 0.7.6
+
+
+<a name="v0.9.12"></a>
+## [v0.9.12] - 2021-09-19
+### Fix
+- add bsdmainutils as git-extras dependency
+
+
+<a name="v0.9.11"></a>
+## [v0.9.11] - 2021-09-19
 ### Doc
 - add a more complex instructional reference
 
@@ -10,6 +62,7 @@
 - fix gitql 2.2.0 release download url
 
 ### Fix
+- don't force deno fmt during unit testing
 - fetch gitql latest release archive
 - update installation step for wsl users
 
@@ -253,7 +306,9 @@
 - refer to new repo
 
 
-[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.9...HEAD
+[Unreleased]: https://github.com/netspective-studios/home-creators/compare/v0.9.12...HEAD
+[v0.9.12]: https://github.com/netspective-studios/home-creators/compare/v0.9.11...v0.9.12
+[v0.9.11]: https://github.com/netspective-studios/home-creators/compare/v0.9.9...v0.9.11
 [v0.9.9]: https://github.com/netspective-studios/home-creators/compare/v0.9.8...v0.9.9
 [v0.9.8]: https://github.com/netspective-studios/home-creators/compare/v0.9.7...v0.9.8
 [v0.9.7]: https://github.com/netspective-studios/home-creators/compare/v0.9.6...v0.9.7
