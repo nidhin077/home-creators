@@ -2,8 +2,29 @@
     [data.git.user]
         name = "Shahid N. Shah"
         email = "user@email.com"
+
     [data.git.credential.helper.cache]
         timeout = 2592000 # 30 days
+
+    # add [data.git.credential.helpers.static.GITHUB] if you want the following in .gitconfig:
+    # [credential "https://github.com"]
+    #    helper = "!f() { echo \"username=user@email.com\\npassword=secret\"; }; f"
+    [data.git.credential.helpers.static.GIT_EXAMPLE_COM]
+        site = "https://github.com"
+        username = "username"
+        password = "secret"
+        type = "GitHub Personal Access Token"
+        expires = "12/31/2021"
+
+    # add [data.git.credential.helpers.static.GIT_EXAMPLE_COM] if you want the following in .gitconfig:
+    # [credential "https://git.example.com"]
+    #    helper = "!f() { echo \"username=user@email.com\\npassword=secret\"; }; f"
+    [data.git.credential.helpers.static.GIT_EXAMPLE_COM]
+        site = "https://git.example.com"
+        username = "user@email.com"
+        password = "secret"
+        type = "GitLab Personal Access Token"
+        expires = "12/31/2021"
 
     # add [data.git.credential.helpers.env.GIT_EXAMPLE_COM] if you want the following in .gitconfig:
     # [credential "https://git.example.com"]

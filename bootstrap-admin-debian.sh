@@ -38,23 +38,9 @@ cat << EOF > $CHEZMOI_CONF
     [data.git.user]
         name = "Shahid N. Shah"
         email = "user@email.com"
-    [data.git.credential.helper.cache]
-        timeout = 2592000 # 30 days
 
-    # add [data.git.credential.helpers.env.GIT_EXAMPLE_COM] if you want the following in .gitconfig:
-    # [credential "https://git.example.com"]
-    #    helper = "!f() { echo \"username=$GIT_CRED_GIT_EXAMPLE_COM_USERNAME\\npassword=$GIT_CRED_GIT_EXAMPLE_COM_PASSWORD\"; }; f"
-    # [data.git.credential.helpers.env.GIT_EXAMPLE_COM]
-    #    site = "https://git.example.com"
-    #    env_var_name_prefix = "GIT_CRED_GIT_EXAMPLE_COM_"
-
-    # add [data.github.user.prime] if you want the following in .gitconfig:
-    # [url "https://gitHubUserHandle:PERSONAL_ACCESS_TOKEN_VALUE@github.com"]
-    #    insteadOf = https://github.com    
-    # [data.github.user.prime]
-    #    id = 'gitHubUserHandle'
-    #    pat = 'PERSONAL_ACCESS_TOKEN_VALUE'
-    #    insteadof_in_gitconfig = "yes"        
+    # see chezmoi.toml.example for more customization examples, 
+    # especially for Git credentials helpers
 EOF
 chmod 0600 $CHEZMOI_CONF
 
