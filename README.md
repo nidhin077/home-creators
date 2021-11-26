@@ -13,8 +13,16 @@ Use `Debian 11+` or `Ubuntu 20.04+` LTS, both are freely available in the Window
 After you install, double-check your version:
 
 ```bash
-sudo apt-get install lsb-release
-lsb_release -a
+sudo apt-get -qq update && sudo apt-get -qq install -y lsb-release && lsb_release -a
+```
+
+You should see something like this:
+
+```bash
+Distributor ID: Debian
+Description:    Debian GNU/Linux 11 (bullseye)
+Release:        11
+Codename:       bullseye
 ```
 
 ## One-time setup
