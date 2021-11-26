@@ -33,14 +33,7 @@ for pkg in direnv deno; do asdf plugin-add $pkg; asdf install $pkg latest; asdf 
 
 export CHEZMOI_CONF=~/.config/chezmoi/chezmoi.toml
 mkdir -p `dirname $CHEZMOI_CONF`
-cat << EOF > $CHEZMOI_CONF
-[data]
-    [data.git.user]
-        name = "Shahid N. Shah"
-        email = "user@email.com"
-
-    # see ~/.config/chezmoi/chezmoi.toml.example to setup Git credentials
-EOF
+curl https://raw.githubusercontent.com/netspective-studios/home-creators/main/dot_config/chezmoi/chezmoi.toml.example > $CHEZMOI_CONF
 chmod 0600 $CHEZMOI_CONF
 
 echo "******************************************************************"
