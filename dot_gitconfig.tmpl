@@ -5,6 +5,17 @@
 [credential]
     helper = cache --timeout={{ .git.credential.helper.cache.timeout }}
 
+{{- if (index . "git") }}
+{{- if (index . "git" "credential") }}
+{{- if (index . "git" "credential" "env") }}
+{{- range .git.credential.helpers.env }}
+[credential {{.site}}]
+	helper = "!f() { echo \"username=${{{{.}}_USERNAME}\\npassword=${{{{.}}_PASSWORD\"; }; f"
+{{- end }}
+{{- end}}
+{{- end}}
+{{- end}}
+
 {{- if (index . "github") }}
 {{- if (index . "github" "user") }}
 {{- if (index . "github" "user" "prime") }}

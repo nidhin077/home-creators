@@ -40,6 +40,8 @@ cat << EOF > $CHEZMOI_CONF
         email = "user@email.com"
     [data.git.credential.helper.cache]
         timeout = 2592000 # 30 days
+    [data.git.credential.helpers.env.GIT_EXAMPLE_COM]
+        site = "https://git.example.com"
 
     # add [data.github.user.prime] if you want the following in .gitconfig:
     # [url "https://gitHubUserHandle:PERSONAL_ACCESS_TOKEN_VALUE@github.com"]
