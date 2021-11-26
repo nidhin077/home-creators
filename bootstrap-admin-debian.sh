@@ -39,8 +39,7 @@ cat << EOF > $CHEZMOI_CONF
         name = "Shahid N. Shah"
         email = "user@email.com"
 
-    # see chezmoi.toml.example for more customization examples, 
-    # especially for Git credentials helpers
+    # see ~/.config/chezmoi/chezmoi.toml.example to setup Git credentials
 EOF
 chmod 0600 $CHEZMOI_CONF
 
