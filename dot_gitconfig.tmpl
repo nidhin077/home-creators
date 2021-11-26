@@ -10,8 +10,8 @@
 {{- if (index . "git" "credential" "helpers") }}
 {{- if (index . "git" "credential" "helpers" "env") }}
 {{- range .git.credential.helpers.env }}
-[credential {{.site}}]
-	helper = "!f() { echo \"username=${_USERNAME}\\npassword=${_PASSWORD\"; }; f"
+[credential "{{.site}}"]
+	helper = "!f() { echo \"username=${{{.envVarNamePrefix}}_USERNAME}\\npassword=${{{.envVarNamePrefix}}_PASSWORD\"; }; f"
 {{- end }}
 {{- end }}
 {{- end}}
