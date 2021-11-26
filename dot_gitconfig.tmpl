@@ -10,8 +10,11 @@
 {{- if (index . "git" "credential" "helpers") }}
 {{- if (index . "git" "credential" "helpers" "env") }}
 {{- range .git.credential.helpers.env }}
+
+# Setup {{.site}} so that when Git needs username/password, they are retrieved from environment variables ${{.env_var_name_prefix}}USERNAME and ${{.env_var_name_prefix}}PASSWORD
 [credential "{{.site}}"]
-	helper = "!f() { echo \"username=${{.envVarNamePrefix}}_USERNAME\\npassword=${{.envVarNamePrefix}}_PASSWORD\"; }; f"
+	# see https://git-scm.com/docs/gitcredentials#_custom_helpers for elaboration
+	helper = "!f() { echo \"username=${{.env_var_name_prefix}}USERNAME\\npassword=${{.env_var_name_prefix}}PASSWORD\"; }; f"
 {{- end }}
 {{- end }}
 {{- end}}
