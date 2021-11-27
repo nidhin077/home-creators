@@ -196,4 +196,4 @@ setup-asdf-plugins-typical:
     just setup-asdf-plugin-global github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git
     just setup-asdf-plugin-global lab https://github.com/particledecay/asdf-lab.git
     just setup-asdf-plugin-global glab https://github.com/particledecay/asdf-glab.git
-    just setup-asdf-plugin-global rclone https://github.com/particledecay/asdf-glab.git
+    just setup-asdf-plugin-global rclone https://github.com/johnlayton/asdf-rclone.git
