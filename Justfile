@@ -38,6 +38,7 @@ doctor:
     asdf current github-cli | sed 's/^/  /'
     asdf current lab | sed 's/^/  /'   
     asdf current glab | sed 's/^/  /'
+    asdf current rclone | sed 's/^/  /'
 
 # Install latest version of jq JSON processor from GitHub
 setup-jq: 
@@ -195,3 +196,4 @@ setup-asdf-plugins-typical:
     just setup-asdf-plugin-global github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git
     just setup-asdf-plugin-global lab https://github.com/particledecay/asdf-lab.git
     just setup-asdf-plugin-global glab https://github.com/particledecay/asdf-glab.git
+    just setup-asdf-plugin-global rclone https://github.com/particledecay/asdf-glab.git
