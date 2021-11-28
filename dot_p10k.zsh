@@ -34,6 +34,7 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
+    my_wsl                  # whether we're using WSL or not
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -1700,3 +1701,9 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+# Segment my_wsl shows "wsl" when in WSL.
+if [[ -r /proc/version && "$(</proc/version)" == *[Mm]icrosoft* ]]; then
+  prompt_my_wsl() p10k segment -b white -f black -t WSL
+  instant_prompt_my_wsl() prompt_my_wsl
+fi
