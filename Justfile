@@ -16,6 +16,7 @@ doctor:
     just --version
     chezmoi --version
     echo "pass `pass version | grep -oh 'v[0-9]*\.[0-9]*\.[0-9]*'`"
+    osqueryi --version 2>/dev/null || echo "WARNING: osquery not installed"
     jq --version
     git-semtag --version
     echo "git-mgitstatus `git-mgitstatus --version`"
