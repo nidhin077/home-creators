@@ -26,9 +26,10 @@ sudo dpkg -i $OSQ_APT_CACHE/$OSQ_DEB_FILE
 curl -sSL https://git.io/git-extras-setup | sudo bash /dev/stdin
 
 curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to $HOME/bin
+ASDF_DIR=$HOME/.asdf
 ASDF_VERSION=`curl -s https://api.github.com/repos/asdf-vm/asdf/tags | jq '.[0].name' -r` \
-    bash -c 'git -c advice.detachedHead=false clone --quiet https://github.com/asdf-vm/asdf.git ~/.asdf --branch ${ASDF_VERSION}'
-. $HOME/.asdf/asdf.sh
+    bash -c 'git -c advice.detachedHead=false clone --quiet https://github.com/asdf-vm/asdf.git $ASDF_DIR --branch ${ASDF_VERSION}'
+. $ASDF_DIR/asdf.sh
 for pkg in direnv deno; do asdf plugin-add $pkg; asdf install $pkg latest; asdf global $pkg latest; done
 
 export CHEZMOI_CONF=~/.config/chezmoi/chezmoi.toml
