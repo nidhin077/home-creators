@@ -1,6 +1,6 @@
 # Netspective Studios Typical Polyglot Creator's Home Setup
 
-This is our opinionated [chezmoi](https://www.chezmoi.io/)- and [asdf](https://asdf-vm.com/)-based "engineering sandbox home" setup for polyglot software development or any other "creator tasks" that are performed on Linux-like operating systems.
+This is our opinionated [chezmoi](https://www.chezmoi.io/)- and [asdf](https://asdf-vm.com/)-based "engineering sandbox home" setup for polyglot software development or any other "creator tasks" that are performed on Linux-like operating systems. [Better project environment management with direnv and asdf](https://blog.mikecordell.com/2021/12/18/better-project-environment-management-with-direnv-and-asdf/) is a good intro to the benefits of `asdf`.
 
 If you're using Windows 10 with WSL2, create a "disposable" **Debian 11 WSL2** instance using Windows Store. This project treats the WSL2 instance as "disposable" meaning it's for development only and can easily be destroyed and recreated whenever necessary. The cost for creation and destruction for a Engineering Sandbox should be so low that it should be treated almost as a container rather than a VM.
 
