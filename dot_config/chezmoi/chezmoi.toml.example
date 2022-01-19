@@ -9,7 +9,7 @@
     # add [data.git.credential.helpers.static.GITHUB] if you want the following in .gitconfig:
     # [credential "https://github.com"]
     #    helper = "!f() { echo \"username=user@email.com\\npassword=secret\"; }; f"
-    [data.git.credential.helpers.static.GIT_EXAMPLE_COM]
+    [data.git.credential.helpers.static.GITHUB]
         site = "https://github.com"
         username = "username"
         password = "secret"
