@@ -7,3 +7,12 @@ alias deno-test="deno test -A --unstable"
 alias deno-testc="deno test -A --unstable --coverage"
 alias deno-clear-caches="rm -rf $(deno --unstable info --json | jq -r .denoDir)"
 alias deno-task='deno run --unstable -A $(git rev-parse --show-toplevel)/Taskfile.ts'
+
+# repo-task runs Taskfile.ts at the Git repo's home directory (same as legacy deno-task alias)
+alias repo-task='deno run --unstable -A $(git rev-parse --show-toplevel)/Taskfile.ts'
+
+# path-task runs Taskfile.ts at the current path, parent path, or ancestor paths (whichever comes first)
+alias path-task=$'deno run --unstable -A $(/bin/bash -c \'file=Taskfile.ts; path=$(pwd); while [[ "$path" != "" && ! -e "$path/$file" ]]; do path=${path%/*}; done; echo "$path/$file"\')'
+
+# cwd-task runs Taskfile.ts at the current working directory only
+alias cwd-task='deno run --unstable -A ./Taskfile.ts'
