@@ -19,7 +19,8 @@ sudo apt-get -y -qq install curl git jq pass unzip bzip2 tree make bsdmainutils 
 
 wget https://github.com/kaplanelad/shellfirm/releases/download/v0.2.4/shellfirm-v0.2.4-x86_64-linux.tar.xz
 tar -xvf shellfirm-v0.2.4-x86_64-linux.tar.xz
-cd shellfirm-v0.2.4-x86_64-linux && mv shellfirm /usr/local/bin
+cd shellfirm-v0.2.4-x86_64-linux
+mv shellfirm /usr/local/bin
 echo shellfirm --version
 curl https://raw.githubusercontent.com/kaplanelad/shellfirm/main/shell-plugins/shellfirm.plugin.zsh -o ~/.shellfirm-plugin.sh
 
