@@ -17,13 +17,6 @@ fi
 sudo apt-get -qq update
 sudo apt-get -y -qq install curl git jq pass unzip bzip2 tree make bsdmainutils time gettext-base wget
 
-wget https://github.com/kaplanelad/shellfirm/releases/download/v0.2.4/shellfirm-v0.2.4-x86_64-linux.tar.xz
-tar -xvf shellfirm-v0.2.4-x86_64-linux.tar.xz
-cd shellfirm-v0.2.4-x86_64-linux
-mv shellfirm /usr/local/bin
-echo shellfirm --version
-curl https://raw.githubusercontent.com/kaplanelad/shellfirm/main/shell-plugins/shellfirm.plugin.zsh -o ~/.shellfirm-plugin.sh
-
 OSQ_VERSION=`curl -s https://api.github.com/repos/osquery/osquery/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
 OSQ_APT_CACHE=/var/cache/apt/archives
 OSQ_DEB_FILE=osquery_${OSQ_VERSION}-1.linux_amd64.deb
