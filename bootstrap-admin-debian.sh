@@ -16,7 +16,9 @@ fi
 
 sudo apt-get -qq update
 sudo apt-get -y -qq install curl git jq pass unzip bzip2 tree make bsdmainutils time gettext-base wget
-wget https://github.com/kaplanelad/shellfirm/releases/download/v0.2.4/shellfirm-v0.2.4-x86_64-linux.tar.xz
+LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/kaplanelad/shellfirm/releases/latest)
+LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+wget https://github.com/kaplanelad/shellfirm/releases/download/${LATEST_VERSION}/shellfirm-${LATEST_VERSION}-x86_64-linux.tar.xz
 tar -xvf shellfirm-v0.2.4-x86_64-linux.tar.xz
 cd shellfirm-v0.2.4-x86_64-linux
 mv shellfirm /usr/local/bin
